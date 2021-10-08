@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mainHomeFragment"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home"/>
 
     <item
         android:id="@+id/mainFavoriteFragment"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_favorite_border_24"
         android:title="@string/favorite"/>
 
     <item
         android:id="@+id/mainSearchFragment"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/search"/>
 
     <item
@@ -21,6 +21,6 @@
         android:title="@string/ranking"/>
     <item
         android:id="@+id/mainOtherFragment"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_person_outline_24"
         android:title="@string/measure_other"/>
 </menu>
