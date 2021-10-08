@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidUITraining</string>
+    <string name="home">ホーム</string>
+    <string name="favorite">お気に入り</string>
+    <string name="search">探す</string>
+    <string name="ranking">ランキング</string>
+    <string name="measure_other">計測・その他</string>
 </resources>
