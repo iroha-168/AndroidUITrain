@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainFavoriteFragment">
+
+    <custom_fragment
+        android:id="@+id/mainHomeFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.MainHomeFragment"
+        android:label="MainHomeFragment"
+        android:tag="home"/>
+    <custom_fragment
+        android:id="@+id/mainFavoriteFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.MainFavoriteFragment"
+        android:label="MainFavoriteFragment"
+        android:tag="favorite"/>
+    <custom_fragment
+        android:id="@+id/mainSearchFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.MainSearchFragment"
+        android:label="MainSearchFragment"
+        android:tag="search"/>
+    <custom_fragment
+        android:id="@+id/mainRankingFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.MainRankingFragment"
+        android:label="MainRankingFragment"
+        android:tag="ranking"/>
+    <custom_fragment
+        android:id="@+id/mainOtherFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.MainOtherFragment"
+        android:label="MainOtherFragment"
+        android:tag="other"/>
+</navigation>
