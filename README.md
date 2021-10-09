@@ -1,7 +1,7 @@
 # AndroidUITrain
 repository for training UI of Android apps
 
-##定義されたcolor resourceの意味
+## 定義されたcolor resourceの意味
 | 使われている部分 | color resource 名 |
 |:-----------|------------:|
 | ブランド追加ボタンの黒       | zozo_black (微妙に真っ黒ではなかった)        |
