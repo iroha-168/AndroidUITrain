@@ -27,9 +27,10 @@ class CustomNavigator(
             return null
         }
 
-        var className = destination.className
-        if (className[0] == '.') {
-            className = context.packageName + className
+        val className = if (destination.className[0] == '.') {
+            context.packageName + destination.className
+        } else {
+            destination.className
         }
 
         val tag = destination.id.toString()
@@ -40,10 +41,13 @@ class CustomNavigator(
             transaction.hide(currentFragment)
         }
 
-        var fragment = manager.findFragmentByTag(tag)
-        if (fragment == null) {
-            fragment = instantiateFragment(context, manager, className, args)
-            transaction.add(containerId, fragment, tag)
+        val fragment = when (val destinationFragment = manager.findFragmentByTag(tag)) {
+            null -> {
+                val newFragment = instantiateFragment(context, manager, className, args)
+                transaction.add(containerId, newFragment, tag)
+                newFragment
+            }
+            else -> destinationFragment
         }
         fragment.arguments = args
 
