@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - develop
     paths-ignore:
       - docs/**
       - README.md
@@ -71,29 +70,6 @@ jobs:
     # テスト
     - name: Test with Gradle
       run: ./gradlew test --stacktrace
-
-    # コードカバレッジをJaCoCo形式で取得
-    - name: Get code coverage for JaCoCo
-      run: ./gradlew jacocoDebugTestReport
-
-    # コードカバレッジをCodecovへアップロード
-    - name: Upload code coverage to Codecov
-      run: bash <(curl -s https://codecov.io/bash)
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-    # テスト結果とコードカバレッジのアップロード
-    - name: Upload test results and code coverage Artifact
-      uses: actions/upload-artifact@v2
-      if: success() || failure()
-      with:
-        name: results
-        path: |
-          **/build/reports/tests/**/*
-          **/build/reports/test-results/**/*
-          **/build/reports/jacoco/**/*
-        if-no-files-found: warn
-        retention-days: 14
         
   lint:
     runs-on: ubuntu-latest
@@ -119,60 +95,5 @@ jobs:
         path: |
           **/build/reports/lint-results-*.html
           **/build/reports/lint-results-*.xml
-        if-no-files-found: error
-        retention-days: 14
-        
-  detekt:
-    runs-on: ubuntu-latest
-    steps:
-    # チェックアウト
-    - uses: actions/checkout@v2
-
-    # 静的解析
-    - name: Lint with detekt
-      run: ./gradlew detekt
-
-    # アーティファクトへアップロード
-    - name: Upload results Artifact
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: results
-        path: |
-          **/build/reports/detekt/**/*
-        if-no-files-found: error
-        retention-days: 14
-        
-  ktlint:
-    runs-on: ubuntu-latest
-    steps:
-    # チェックアウト
-    - uses: actions/checkout@v2
-
-    # インストール
-    - name: Install ktlint
-      run: |
-        curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.42.1/ktlint
-        chmod a+x ktlint
-        sudo mv ktlint /usr/local/bin/
-
-    # 静的解析
-    - name: Lint with ktlint
-      run: ktlint --reporter=checkstyle,output=build/ktlint-report.xml
-      continue-on-error: true
-
-    # 結果の表示
-    - uses: yutailang0119/action-ktlint@v1
-      with:
-        xml_path: build/ktlint-report.xml
-
-    # アーティファクトへアップロード
-    - name: Upload results Artifact
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: results
-        path: |
-          **/build/ktlint-report.xml
         if-no-files-found: error
         retention-days: 14
