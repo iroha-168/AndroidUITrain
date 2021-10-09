@@ -1,4 +1,4 @@
-package com.nemo.androiduitraining.view.fragment
+package com.nemo.androiduitraining.view.fragment.favorite
 
 import android.os.Bundle
 import android.view.LayoutInflater
