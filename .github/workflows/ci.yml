@@ -10,7 +10,7 @@ on:
       - LICENSE
   pull_request:
     branches:
-      - develop
+      - main
     paths-ignore:
       - docs/**
       - README.md
