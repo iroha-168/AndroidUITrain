@@ -6,27 +6,27 @@
 
     <custom_fragment
         android:id="@+id/homeFragment"
-        android:name="com.nemo.androiduitraining.view.fragment.HomeFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.home.HomeFragment"
         android:label="MainHomeFragment"
         android:tag="home"/>
     <custom_fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.nemo.androiduitraining.view.fragment.FavoriteFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.favorite.FavoriteFragment"
         android:label="MainFavoriteFragment"
         android:tag="favorite"/>
     <custom_fragment
         android:id="@+id/searchFragment"
-        android:name="com.nemo.androiduitraining.view.fragment.SearchFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.search.SearchFragment"
         android:label="MainSearchFragment"
         android:tag="search"/>
     <custom_fragment
         android:id="@+id/rankingFragment"
-        android:name="com.nemo.androiduitraining.view.fragment.RankingFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.ranking.RankingFragment"
         android:label="MainRankingFragment"
         android:tag="ranking"/>
     <custom_fragment
         android:id="@+id/otherFragment"
-        android:name="com.nemo.androiduitraining.view.fragment.OtherFragment"
+        android:name="com.nemo.androiduitraining.view.fragment.other.OtherFragment"
         android:label="MainOtherFragment"
         android:tag="other"/>
 </navigation>
