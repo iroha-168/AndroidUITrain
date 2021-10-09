@@ -54,24 +54,7 @@
         android:background="@color/zozo_dark_gray"
         app:layout_constraintTop_toBottomOf="@id/top_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/new_item"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/item"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/brand"/>
-
-    </com.google.android.material.tabs.TabLayout>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/favorite_view_pager"
@@ -80,5 +63,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/favorite_tab_layout"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

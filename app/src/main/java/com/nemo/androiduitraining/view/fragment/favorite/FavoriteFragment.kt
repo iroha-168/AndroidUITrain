@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.tabs.TabLayoutMediator
+import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
@@ -27,6 +29,7 @@ class FavoriteFragment : Fragment() {
 
         val adapter = FavoriteViewPagerAdapter(this)
         setUpViewPager2(adapter)
+        connectTabLayoutAndViewPager2()
     }
 
     override fun onDestroyView() {
@@ -38,15 +41,31 @@ class FavoriteFragment : Fragment() {
         binding.favoriteViewPager.adapter = adapter
     }
 
+    private fun connectTabLayoutAndViewPager2() {
+        TabLayoutMediator(binding.favoriteTabLayout, binding.favoriteViewPager) { tab, position ->
+            val tabTitle = when (position) {
+                FragmentsOrder.NEW_ITEM.ordinal -> resources.getString(R.string.new_item)
+                FragmentsOrder.ITEM.ordinal -> resources.getString(R.string.item)
+                FragmentsOrder.BRAND.ordinal -> resources.getString(R.string.brand)
+                else -> ""
+            }
+            tab.text = tabTitle
+        }.attach()
+    }
+
     class FavoriteViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
         override fun getItemCount(): Int = 3
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> FavoriteNewItemFragment.newInstance()
-                1 -> FavoriteItemFragment.newInstance()
-                2 -> FavoriteBrandFragment.newInstance()
+                FragmentsOrder.NEW_ITEM.ordinal -> FavoriteNewItemFragment.newInstance()
+                FragmentsOrder.ITEM.ordinal -> FavoriteItemFragment.newInstance()
+                FragmentsOrder.BRAND.ordinal -> FavoriteBrandFragment.newInstance()
                 else -> throw IllegalArgumentException("予想外のFragmentです")
             }
         }
+    }
+
+    private enum class FragmentsOrder {
+        NEW_ITEM, ITEM, BRAND
     }
 }
