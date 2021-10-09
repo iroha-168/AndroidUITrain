@@ -44,9 +44,9 @@ class FavoriteFragment : Fragment() {
     private fun connectTabLayoutAndViewPager2() {
         TabLayoutMediator(binding.favoriteTabLayout, binding.favoriteViewPager) { tab, position ->
             val tabTitle = when (position) {
-                FragmentsOrder.NEW_ITEM.ordinal -> resources.getString(R.string.new_item)
-                FragmentsOrder.ITEM.ordinal -> resources.getString(R.string.item)
-                FragmentsOrder.BRAND.ordinal -> resources.getString(R.string.brand)
+                FragmentsOrder.NEW_ITEM.ordinal -> FragmentsOrder.NEW_ITEM.title
+                FragmentsOrder.ITEM.ordinal -> FragmentsOrder.ITEM.title
+                FragmentsOrder.BRAND.ordinal -> FragmentsOrder.BRAND.title
                 else -> ""
             }
             tab.text = tabTitle
@@ -65,7 +65,7 @@ class FavoriteFragment : Fragment() {
         }
     }
 
-    private enum class FragmentsOrder {
-        NEW_ITEM, ITEM, BRAND
+    private enum class FragmentsOrder(val title: String) {
+        NEW_ITEM("新着"), ITEM("アイテム"), BRAND("ブランド")
     }
 }
