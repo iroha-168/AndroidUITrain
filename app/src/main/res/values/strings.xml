@@ -9,4 +9,7 @@
     <!--FavoriteFragment周り-->
     <string name="cart">カート</string>
     <string name="bell">ベル</string>
+    <string name="new_item">新着</string>
+    <string name="item">アイテム</string>
+    <string name="brand">ブランド</string>
 </resources>
