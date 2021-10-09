@@ -22,15 +22,26 @@ class FavoriteFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val adapter = FavoriteViewPagerAdapter(this)
+        setUpViewPager2(adapter)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
+    private fun setUpViewPager2(adapter: FavoriteViewPagerAdapter) {
+        binding.favoriteViewPager.adapter = adapter
+    }
+
     class FavoriteViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
         override fun getItemCount(): Int = 3
         override fun createFragment(position: Int): Fragment {
-            return when(position) {
+            return when (position) {
                 0 -> FavoriteNewItemFragment.newInstance()
                 1 -> FavoriteItemFragment.newInstance()
                 2 -> FavoriteBrandFragment.newInstance()

@@ -12,4 +12,7 @@
     <string name="new_item">新着</string>
     <string name="item">アイテム</string>
     <string name="brand">ブランド</string>
+    <string name="favorite_brand_fragment">FavoriteBrandFragment</string>
+    <string name="favorite_new_item_fragment">FavoriteNewItemFragment</string>
+    <string name="fragment_favorite_item">FragmentFavoriteItem</string>
 </resources>
