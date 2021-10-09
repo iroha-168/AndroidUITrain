@@ -12,6 +12,10 @@ class FavoriteBrandFragment : Fragment() {
     private val binding: FragmentFavoriteBrandBinding
         get() = _binding!!
 
+    companion object {
+        fun newInstance() = FavoriteBrandFragment()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

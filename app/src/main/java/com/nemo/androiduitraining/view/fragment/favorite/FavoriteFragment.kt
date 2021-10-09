@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.nemo.androiduitraining.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
@@ -24,5 +25,17 @@ class FavoriteFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    class FavoriteViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
+        override fun getItemCount(): Int = 3
+        override fun createFragment(position: Int): Fragment {
+            return when(position) {
+                0 -> FavoriteNewItemFragment.newInstance()
+                1 -> FavoriteItemFragment.newInstance()
+                2 -> FavoriteBrandFragment.newInstance()
+                else -> throw IllegalArgumentException("予想外のFragmentです")
+            }
+        }
     }
 }
