@@ -3,6 +3,7 @@ package com.nemo.androiduitraining.view.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.ActivityMainBinding
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpBottomNavigationView() {
-        val navController = findNavController(R.id.nav_host_fragment)
-        binding.bottomNavigationView.setupWithNavController(navController)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        binding.bottomNavigationView.setupWithNavController(navHostFragment.navController)
     }
 }
