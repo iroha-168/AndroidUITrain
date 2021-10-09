@@ -5,4 +5,8 @@
     <string name="search">探す</string>
     <string name="ranking">ランキング</string>
     <string name="measure_other">計測・その他</string>
+
+    <!--FavoriteFragment周り-->
+    <string name="cart">カート</string>
+    <string name="bell">ベル</string>
 </resources>
