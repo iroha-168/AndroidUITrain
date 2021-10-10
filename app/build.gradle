@@ -61,4 +61,7 @@ dependencies {
 
     def view_pager2_version = "1.0.0"
     implementation "androidx.viewpager2:viewpager2:$view_pager2_version"
+
+    // Logger
+    implementation 'com.jakewharton.timber:timber:5.0.1'
 }

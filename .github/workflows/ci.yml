@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - docs/**
+      - README.md
+      - LICENSE
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - docs/**
+      - README.md
+      - LICENSE
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # JDKのセットアップ
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: '11'
+
+    # Gradleのキャッシュ復元
+    - uses: actions/cache@v2
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    # 依存関係の出力
+    - name: Displays the Android dependencies of the project
+      run: ./gradlew androidDependencies
+
+    # コンパイル
+    - name: Run Compile
+      run: ./gradlew assembleDebug
+      
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # JDKのセットアップ
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: '11'
+
+    # Gradleのキャッシュ復元
+    - uses: actions/cache@v2
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    # テスト
+    - name: Test with Gradle
+      run: ./gradlew test --stacktrace
+        
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # 静的解析
+    - name: Run Inspection
+      run: ./gradlew lint
+
+    # 結果の表示
+    - uses: yutailang0119/action-android-lint@v1
+      with:
+        xml_path: '**/build/reports/lint-results-*.xml'
+
+    # アーティファクトへアップロード
+    - name: Upload results Artifact
+      uses: actions/upload-artifact@v2
+      if: success() || failure()
+      with:
+        name: results
+        path: |
+          **/build/reports/lint-results-*.html
+          **/build/reports/lint-results-*.xml
+        if-no-files-found: error
+        retention-days: 14
