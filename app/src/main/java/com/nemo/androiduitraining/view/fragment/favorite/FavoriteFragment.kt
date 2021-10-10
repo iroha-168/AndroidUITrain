@@ -54,7 +54,7 @@ class FavoriteFragment : Fragment() {
     }
 
     class FavoriteViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
-        override fun getItemCount(): Int = 3
+        override fun getItemCount(): Int = FragmentsOrder.values().size
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 FragmentsOrder.NEW_ITEM.ordinal -> FavoriteNewItemFragment.newInstance()
