@@ -59,4 +59,9 @@ dependencies {
 
     // Logger
     implementation("com.jakewharton.timber:timber:5.0.1")
+
+    //groupie
+    val groupieVersion = "2.9.0"
+    implementation ("com.github.lisawray.groupie:groupie:$groupieVersion")
+    implementation ("com.github.lisawray.groupie:groupie-viewbinding:$groupieVersion")
 }
