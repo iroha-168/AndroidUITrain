@@ -39,13 +39,7 @@ class FavoriteFragment : Fragment() {
         binding.favoriteViewPager.adapter = adapter
 
         TabLayoutMediator(binding.favoriteTabLayout, binding.favoriteViewPager) { tab, position ->
-            val tabTitle = when (position) {
-                FragmentsOrder.NEW_ITEM.ordinal -> FragmentsOrder.NEW_ITEM.title
-                FragmentsOrder.ITEM.ordinal -> FragmentsOrder.ITEM.title
-                FragmentsOrder.BRAND.ordinal -> FragmentsOrder.BRAND.title
-                else -> ""
-            }
-            tab.text = tabTitle
+            tab.text = FragmentsOrder.values()[position].title
         }.attach()
     }
 
