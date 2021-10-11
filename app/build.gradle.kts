@@ -33,6 +33,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -64,4 +65,7 @@ dependencies {
     val groupieVersion = "2.9.0"
     implementation ("com.github.lisawray.groupie:groupie:$groupieVersion")
     implementation ("com.github.lisawray.groupie:groupie-viewbinding:$groupieVersion")
+
+    // Coil (For Downloading Image)
+    implementation("io.coil-kt:coil:1.4.0")
 }
