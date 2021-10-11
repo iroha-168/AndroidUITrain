@@ -12,4 +12,7 @@
     <string name="favorite_item_fragment">FavoriteItemFragment</string>
     <string name="favorite_new_item_fragment">FavoriteNewItemFragment</string>
     <string name="favorite_brand_fragment">FavoriteBrandFragment</string>
+    <string name="no_favorite_brand">お気に入りのブランドの登録がありません</string>
+    <string name="no_brand_sub_text">気になるブランドをお気に入りに登録すると、\nブランドの新着アイテムがまとめてチェックできます。</string>
+    <string name="image">画像</string>
 </resources>
