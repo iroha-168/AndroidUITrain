@@ -2,7 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
     <color name="dark_gray">#efefef</color>
     <color name="light_gray">#f8f8f8</color>
     <color name="pink">#ff7680</color>
@@ -12,4 +11,5 @@
     <color name="person_image_blue">#0064d7</color>
     <color name="person_image_pink">#f16868</color>
     <color name="person_image_yellow">#f5c955</color>
+    <color name="toolbar_background">#EFEFEF</color>
 </resources>
