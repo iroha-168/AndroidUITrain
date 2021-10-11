@@ -9,13 +9,13 @@ import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteItemBinding
 
 class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
-    private var _binding: FragmentFavoriteItemBinding? = null
-    private val binding: FragmentFavoriteItemBinding
-        get() = _binding!!
-
     companion object {
         fun newInstance() = FavoriteItemFragment()
     }
+
+    private var _binding: FragmentFavoriteItemBinding? = null
+    private val binding: FragmentFavoriteItemBinding
+        get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
