@@ -12,7 +12,7 @@ class AndroidUITrainingApplication : Application() {
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.asTree())
+            Timber.plant(Timber.DebugTree())
         }
     }
 }
