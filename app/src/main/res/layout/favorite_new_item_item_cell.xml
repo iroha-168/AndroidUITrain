@@ -50,6 +50,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical2"
             app:layout_constraintBottom_toTopOf="@id/brand_tv"
+            android:gravity="start|bottom"
             android:textColor="@color/black"
             app:layout_constraintHorizontal_bias="1"/>
         <TextView
@@ -60,6 +61,7 @@
             app:layout_constraintTop_toBottomOf="@id/item_name_tv"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical2"
+            android:gravity="start|top"
             android:textColor="@color/text_gray"
             app:layout_constraintHorizontal_bias="1"/>
 

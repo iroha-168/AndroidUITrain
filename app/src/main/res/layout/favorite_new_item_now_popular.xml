@@ -11,8 +11,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="h,7:2"
-        android:background="@color/light_gray">
+        app:layout_constraintDimensionRatio="h,7:2">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_horizontal"

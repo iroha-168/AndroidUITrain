@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteNewItemBinding
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteNewItemViewModel
+import com.xwray.groupie.GroupieAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,10 +27,23 @@ class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFavoriteNewItemBinding.bind(view)
+
+        setupRecycler()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun initializeGroupieAdapter(): GroupieAdapter {
+        viewModel.createItemCells()
+        return GroupieAdapter().apply {
+            this.update(viewModel.defaultViewList)
+        }
+    }
+
+    private fun setupRecycler() {
+        binding.favoriteNewItemRecycler.adapter = initializeGroupieAdapter()
     }
 }
