@@ -1,9 +1,7 @@
 package com.nemo.androiduitraining.view.fragment.favorite
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
@@ -19,8 +17,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFavoriteBinding.bind(view)
 
-        val adapter = FavoriteViewPagerAdapter(this)
-        setupViewPager(adapter)
+        setupViewPager()
     }
 
     override fun onDestroyView() {
@@ -28,8 +25,8 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
         _binding = null
     }
 
-    private fun setupViewPager(adapter: FavoriteViewPagerAdapter) {
-        binding.favoriteViewPager.adapter = adapter
+    private fun setupViewPager() {
+        binding.favoriteViewPager.adapter = FavoriteViewPagerAdapter(this)
 
         TabLayoutMediator(binding.favoriteTabLayout, binding.favoriteViewPager) { tab, position ->
             tab.text = FragmentsOrder.values()[position].title
