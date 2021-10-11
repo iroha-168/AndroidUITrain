@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteBrandBinding
 
-class FavoriteBrandFragment : Fragment() {
+class FavoriteBrandFragment : Fragment(R.layout.fragment_favorite_brand) {
     private var _binding: FragmentFavoriteBrandBinding? = null
     private val binding: FragmentFavoriteBrandBinding
         get() = _binding!!
@@ -16,13 +17,9 @@ class FavoriteBrandFragment : Fragment() {
         fun newInstance() = FavoriteBrandFragment()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentFavoriteBrandBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentFavoriteBrandBinding.bind(view)
     }
 
     override fun onDestroyView() {
