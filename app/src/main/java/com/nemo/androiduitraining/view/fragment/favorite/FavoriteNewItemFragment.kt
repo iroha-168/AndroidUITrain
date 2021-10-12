@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteNewItemBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
     companion object {
         fun newInstance() = FavoriteNewItemFragment()

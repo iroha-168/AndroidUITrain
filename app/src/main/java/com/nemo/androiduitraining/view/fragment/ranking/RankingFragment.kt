@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nemo.androiduitraining.databinding.FragmentRankingBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RankingFragment : Fragment() {
     private lateinit var binding: FragmentRankingBinding
     private val indexItems = listOf(IndexItem.FistItem)

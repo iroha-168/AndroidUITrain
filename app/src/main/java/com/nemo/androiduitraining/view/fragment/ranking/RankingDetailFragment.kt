@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import com.nemo.androiduitraining.databinding.FragmentRankingDetailBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RankingDetailFragment: Fragment() {
     private lateinit var binding: FragmentRankingDetailBinding
 
