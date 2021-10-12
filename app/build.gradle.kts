@@ -66,6 +66,6 @@ dependencies {
     implementation ("com.github.lisawray.groupie:groupie:$groupieVersion")
     implementation ("com.github.lisawray.groupie:groupie-viewbinding:$groupieVersion")
 
-    // Coil (For Downloading Image)
+    // Coil
     implementation("io.coil-kt:coil:1.4.0")
 }
