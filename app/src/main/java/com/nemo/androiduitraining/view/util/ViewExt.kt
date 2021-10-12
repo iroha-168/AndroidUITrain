@@ -13,13 +13,13 @@ fun View.setOnClickListenerWithoutDoubleTap(onClickListener: View.OnClickListene
 }
 
 class DoubleTapOnClickListener(val listener: View.OnClickListener?) : View.OnClickListener {
-    private var lastTapAt = 0L // ms
+    private var lastTapAtMs = 0L
 
-    override fun onClick(p0: View?) {
+    override fun onClick(view: View?) {
         val now = Instant.now().toEpochMilli()
-        if (now - lastTapAt >= 500) {
-            listener?.onClick(p0)
+        if (now - lastTapAtMs >= 500) {
+            listener?.onClick(view)
         }
-        lastTapAt = now
+        lastTapAtMs = now
     }
 }
