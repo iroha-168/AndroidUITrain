@@ -64,4 +64,7 @@ dependencies {
     val groupieVersion = "2.9.0"
     implementation ("com.github.lisawray.groupie:groupie:$groupieVersion")
     implementation ("com.github.lisawray.groupie:groupie-viewbinding:$groupieVersion")
+
+    //swiperefreshlayout
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
 }
