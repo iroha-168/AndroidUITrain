@@ -1,5 +1,7 @@
 package com.nemo.androiduitraining.viewModel.favorite
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -7,7 +9,11 @@ import kotlin.random.Random
 
 @HiltViewModel
 class FavoriteItemViewModel @Inject constructor(): ViewModel() {
-    fun fetchDisplayClothsList(): List<DisplayClothsData> {
+    private val _clothsLD = MutableLiveData<List<DisplayClothsData>>()
+    val clothsLD: LiveData<List<DisplayClothsData>>
+        get() = _clothsLD
+
+    fun fetchDisplayClothsList() {
         val displayList = mutableListOf<DisplayClothsData>()
 
         for(i in 0..29) {
@@ -20,7 +26,7 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
             displayList.add(data)
         }
 
-        return displayList
+        _clothsLD.postValue(displayList)
     }
 
     private val fullData = DisplayClothsData(
