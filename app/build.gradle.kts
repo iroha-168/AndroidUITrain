@@ -33,6 +33,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -64,6 +65,9 @@ dependencies {
     val groupieVersion = "2.9.0"
     implementation ("com.github.lisawray.groupie:groupie:$groupieVersion")
     implementation ("com.github.lisawray.groupie:groupie-viewbinding:$groupieVersion")
+
+    // Coil
+    implementation("io.coil-kt:coil:1.4.0")
 
     //swiperefreshlayout
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
