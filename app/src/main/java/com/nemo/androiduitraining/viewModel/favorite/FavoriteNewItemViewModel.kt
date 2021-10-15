@@ -11,18 +11,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoriteNewItemViewModel @Inject constructor() : ViewModel() {
-    private val _defaultViewList = mutableListOf(
-        FavoriteNoBrandRegistered(),
-        FavoriteNowPopular()
-    )
-    val defaultViewList: List<BindableItem<out ViewBinding>>
-        get() = _defaultViewList
 
-    fun createItemCells() {
-        for (i in 0..29) {
-            _defaultViewList.add(FavoriteItemCell(
-                "ほげほげ", "ふがふが"
-            ))
-        }
-    }
 }
