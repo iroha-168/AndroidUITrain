@@ -20,24 +20,15 @@ class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
         fun newInstance() = FavoriteNewItemFragment()
     }
 
-    private var _binding: FragmentFavoriteNewItemBinding? = null
-    private val binding: FragmentFavoriteNewItemBinding
-        get() = _binding!!
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentFavoriteNewItemBinding.bind(view)
+        val binding = FragmentFavoriteNewItemBinding.bind(view)
 
         val adapter = GroupieCustomAdapter()
-        setupRecycler(adapter)
+        setupRecycler(binding, adapter)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    private fun setupRecycler(adapter: GroupieCustomAdapter) {
+    private fun setupRecycler(binding: FragmentFavoriteNewItemBinding, adapter: GroupieCustomAdapter) {
         val layoutManager = LinearLayoutManager(requireContext())
 
         binding.favoriteNewItemRecycler.also {
