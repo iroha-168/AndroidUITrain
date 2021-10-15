@@ -1,6 +1,7 @@
 package com.nemo.androiduitraining.view.fragment.favorite.entity
 
 import android.view.View
+import coil.load
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FavoriteItemDescriptionBinding
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
@@ -13,6 +14,10 @@ class FavoriteItemDescription(
         viewBinding.clothsNameTv.text = displayData.itemName
         viewBinding.clothsGenreTv.text = displayData.itemGenre
         viewBinding.clothsPriceTv.text = displayData.itemPrice.toString()
+
+        viewBinding.mainImage.load(displayData.itemImage) {
+            this.error(R.drawable.ic_android_black_24dp)
+        }
 
         when (val percent = displayData.discountPercent) {
             null -> viewBinding.discountPercentTv.visibility = View.GONE
