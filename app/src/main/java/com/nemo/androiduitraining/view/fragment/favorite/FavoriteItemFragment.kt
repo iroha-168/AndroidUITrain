@@ -25,12 +25,18 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentFavoriteItemBinding.bind(view)
-
-        setupRecycler(binding)
+        fetchClothsAndSetupRecycler(binding)
     }
 
-    private fun setupRecycler(binding: FragmentFavoriteItemBinding) {
-        val adapter = CustomGroupieAdapter(viewModel.fetchDisplayClothsList()).also {
+    private fun fetchClothsAndSetupRecycler(binding: FragmentFavoriteItemBinding) {
+        viewModel.clothsLD.observe(viewLifecycleOwner) {
+            setupRecycler(binding, it)
+        }
+        viewModel.fetchDisplayClothsList()
+    }
+
+    private fun setupRecycler(binding: FragmentFavoriteItemBinding, itemList: List<FavoriteItemViewModel.DisplayClothsData>) {
+        val adapter = CustomGroupieAdapter(itemList).also {
             it.updateList()
         }
         val gridLayoutManager = GridLayoutManager(requireContext(), 3).also {
