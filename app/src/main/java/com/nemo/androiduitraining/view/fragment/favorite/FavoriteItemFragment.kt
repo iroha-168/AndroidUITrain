@@ -13,17 +13,8 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         fun newInstance() = FavoriteItemFragment()
     }
 
-    private var _binding: FragmentFavoriteItemBinding? = null
-    private val binding: FragmentFavoriteItemBinding
-        get() = _binding!!
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentFavoriteItemBinding.bind(view)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        val binding = FragmentFavoriteItemBinding.bind(view)
     }
 }
