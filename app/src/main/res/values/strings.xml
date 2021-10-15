@@ -13,7 +13,10 @@
     <string name="favorite_new_item_fragment">FavoriteNewItemFragment</string>
     <string name="favorite_brand_fragment">FavoriteBrandFragment</string>
     <string name="no_favorite_brand">お気に入りのブランドの登録がありません</string>
+    <string name="no_favorite_item">お気に入りアイテムの登録がありません</string>
     <string name="no_brand_sub_text">気になるブランドをお気に入りに登録すると、\nブランドの新着アイテムがまとめてチェックできます。</string>
+    <string name="no_item_sub_text">お気に入りに登録するとこの画面に保存され、\nクーポンやセールの時にいち早くお知らせします。</string>
     <string name="image">画像</string>
     <string name="now_popular_brand">今人気のブランド</string>
+    <string name="now_popular_item">今人気のアイテム</string>
 </resources>
