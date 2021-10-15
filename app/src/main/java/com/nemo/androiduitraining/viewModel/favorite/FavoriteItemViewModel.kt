@@ -24,7 +24,7 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
     }
 
     private val fullData = DisplayClothsData(
-        itemImage = "",
+        itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = 50,
         couponPrice = 300,
         itemName = "アディパン",
@@ -33,7 +33,7 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
     )
 
     private val missPercentData = DisplayClothsData(
-        itemImage = "",
+        itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = null,
         couponPrice = 300,
         itemName = "アディパン",
@@ -42,7 +42,7 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
     )
 
     private val missCouponData = DisplayClothsData(
-        itemImage = "",
+        itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = 50,
         couponPrice = null,
         itemName = "アディパン",
@@ -51,7 +51,7 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
     )
 
     private val missBothData = DisplayClothsData(
-        itemImage = "",
+        itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = null,
         couponPrice = null,
         itemName = "アディパン",
