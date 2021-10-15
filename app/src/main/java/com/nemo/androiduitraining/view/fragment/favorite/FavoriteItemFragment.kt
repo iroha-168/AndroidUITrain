@@ -4,11 +4,13 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteItemBinding
 import com.nemo.androiduitraining.view.fragment.favorite.entity.*
+import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
 import java.lang.IllegalArgumentException
@@ -18,6 +20,8 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         fun newInstance() = FavoriteItemFragment()
     }
 
+    private val viewModel: FavoriteItemViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentFavoriteItemBinding.bind(view)
@@ -26,7 +30,9 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     }
 
     private fun setupRecycler(binding: FragmentFavoriteItemBinding) {
-        val adapter = CustomGroupieAdapter().also { it.updateList() }
+        val adapter = CustomGroupieAdapter(viewModel.fetchDisplayClothsList()).also {
+            it.updateList()
+        }
         val gridLayoutManager = GridLayoutManager(requireContext(), 3).also {
             it.spanSizeLookup = CustomGridSpanSizeLookup(adapter.itemList, resources)
         }
@@ -37,7 +43,9 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         }
     }
 
-    private class CustomGroupieAdapter : GroupieAdapter() {
+    private class CustomGroupieAdapter(
+        private val displayDataList: List<FavoriteItemViewModel.DisplayClothsData>
+    ) : GroupieAdapter() {
         private val _itemList: MutableList<BindableItem<out ViewBinding>> = mutableListOf()
         val itemList: List<BindableItem<out ViewBinding>>
             get() = _itemList
@@ -45,10 +53,9 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         private fun createItemCells() {
             _itemList.add(FavoriteNoItemRegistered())
             _itemList.add(FavoriteNowPopularItem())
-            for (i in 0..29) {
-                _itemList.add(
-                    FavoriteItemDescription()
-                )
+
+            displayDataList.forEach {
+                _itemList.add(FavoriteItemDescription(it))
             }
         }
 
