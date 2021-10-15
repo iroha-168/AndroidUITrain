@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
+            app:layout_constraintGuide_percent="0.6" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_horizontal2"
@@ -53,7 +53,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
             app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal2"
-            android:textStyle="bold" />
+            android:background="@color/pink"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:elevation="2dp"/>
 
         <TextView
             android:id="@+id/coupon_price_tv"
@@ -63,7 +67,11 @@
             app:layout_constraintStart_toStartOf="@id/guideline_vertical1"
             app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
             app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal2"
-            android:textStyle="bold" />
+            android:background="@color/person_image_yellow"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:elevation="2dp"/>
 
 
         <TextView
@@ -74,7 +82,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline_horizontal2"
             app:layout_constraintBottom_toTopOf="@id/cloths_genre_tv"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:gravity="bottom|start"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cloths_genre_tv"
@@ -83,7 +94,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cloths_name_tv"
-            app:layout_constraintBottom_toTopOf="@id/cloths_price_tv"/>
+            app:layout_constraintBottom_toTopOf="@id/cloths_price_tv"
+            android:layout_marginStart="8dp"
+            android:gravity="top|start"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cloths_price_tv"
@@ -94,6 +108,7 @@
             app:layout_constraintEnd_toStartOf="@id/favorite_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_weight="0.7"
+            android:layout_marginStart="8dp"
             android:textStyle="bold"
             android:textColor="@color/person_image_pink"/>
 
@@ -107,7 +122,8 @@
             app:layout_constraintStart_toEndOf="@id/cloths_price_tv"
             app:layout_constraintTop_toBottomOf="@id/cloths_genre_tv"
             android:contentDescription="@string/image"
-            app:layout_constraintHorizontal_weight="0.3"/>
+            app:layout_constraintHorizontal_weight="0.3"
+            app:tint="@color/text_gray"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
