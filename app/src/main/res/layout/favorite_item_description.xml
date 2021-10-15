@@ -13,6 +13,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintDimensionRatio="h,3:5">
 
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintGuide_percent="0.35"
+            android:orientation="vertical"/>
+
         <ImageView
             android:id="@+id/main_image"
             android:layout_width="0dp"
@@ -23,41 +45,26 @@
             app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal1"
             android:contentDescription="@string/image"/>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_horizontal1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65"/>
-
         <TextView
             android:id="@+id/discount_percent_tv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintEnd_toStartOf="@id/coupon_price_tv"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
             app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal2"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_weight="0.35"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/coupon_price_tv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/discount_percent_tv"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical1"
             app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
             app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal2"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_weight="0.65"/>
+            android:textStyle="bold" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_horizontal2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.7"/>
 
         <TextView
             android:id="@+id/cloths_name_tv"
