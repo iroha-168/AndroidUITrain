@@ -13,8 +13,10 @@ import com.nemo.androiduitraining.view.fragment.favorite.entity.*
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.IllegalArgumentException
 
+@AndroidEntryPoint
 class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     companion object {
         fun newInstance() = FavoriteItemFragment()
