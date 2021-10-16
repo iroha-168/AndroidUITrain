@@ -37,17 +37,13 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
 
     private fun fetchClothsAndUpdateList(binding: FragmentFavoriteItemBinding, adapter: CustomGroupieAdapter) {
         viewModel.clothsLD.observe(viewLifecycleOwner) { cloths ->
-            if (cloths.isEmpty()) return@observe
-
-            adapter.updateList(cloths)
-
             val spanSize = DisplayItemKind.values().maxOf { it.spanSize }
             val gridLayoutManager = GridLayoutManager(requireContext(), spanSize).also {
-                it.spanSizeLookup = CustomGridSpanSizeLookup(adapter.itemList, resources)
+                it.spanSizeLookup = CustomGridSpanSizeLookup(adapter, resources)
             }
-
             binding.favoriteItemRecycler.layoutManager = gridLayoutManager
 
+            adapter.updateList(cloths)
         }
         viewModel.fetchDisplayClothsList()
     }
@@ -76,11 +72,11 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     }
 
     private class CustomGridSpanSizeLookup(
-        private val nowItemList: List<BindableItem<out ViewBinding>>,
+        private val adapter: CustomGroupieAdapter,
         private val res: Resources
     ) : GridLayoutManager.SpanSizeLookup() {
         override fun getSpanSize(position: Int): Int {
-            return when (nowItemList[position]) {
+            return when (adapter.itemList[position]) {
                 is FavoriteNoItemRegistered -> DisplayItemKind.NO_ITEM.spanSize
                 is FavoriteNowPopularItem -> DisplayItemKind.POPULAR.spanSize
                 is FavoriteItemDescription -> DisplayItemKind.DESCRIPTION.spanSize
