@@ -1,8 +1,15 @@
 package com.nemo.androiduitraining.view.util
 
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import java.time.Instant
+
+@BindingAdapter("visible")
+fun View.setVisible(visible: Boolean?) {
+    visible ?: return
+    isVisible = visible
+}
 
 /**
  * 連打対策付きクリックイベント
