@@ -19,7 +19,7 @@ fun View.setOnClickListenerWithoutDoubleTap(onClickListener: View.OnClickListene
     setOnClickListener(DoubleTapOnClickListener(onClickListener))
 }
 
-class DoubleTapOnClickListener(val listener: View.OnClickListener?) : View.OnClickListener {
+class DoubleTapOnClickListener(private val listener: View.OnClickListener?) : View.OnClickListener {
     private var lastTapAtMs = 0L
 
     override fun onClick(view: View?) {
