@@ -29,6 +29,6 @@ class FavoriteNewItemViewModel @Inject constructor() : ViewModel() {
 
     data class BrandItem(
         val name: String,
-        val genre: String
+        val nameJapanese: String
     )
 }

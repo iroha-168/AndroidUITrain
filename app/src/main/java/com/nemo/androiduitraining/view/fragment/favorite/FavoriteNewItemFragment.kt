@@ -72,8 +72,8 @@ class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
         fun updateList(brandsList: List<FavoriteNewItemViewModel.BrandItem>) {
             this.itemList = defaultViewList + brandsList.map {
                 FavoriteItemCell(
-                    itemName = it.name,
-                    brandName = it.genre
+                    brandName = it.name,
+                    brandNameJapanese = it.nameJapanese
                 )
             }
             update(this.itemList)
