@@ -2,6 +2,7 @@ package com.nemo.androiduitraining.view.fragment.favorite
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,6 +15,7 @@ import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import java.lang.IllegalArgumentException
 
 @AndroidEntryPoint
@@ -27,48 +29,48 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentFavoriteItemBinding.bind(view)
-        fetchClothsAndSetupRecycler(binding)
+
+        val adapter = CustomGroupieAdapter()
+        fetchClothsAndUpdateList(binding, adapter)
+        setupRecycler(binding, adapter)
     }
 
-    private fun fetchClothsAndSetupRecycler(binding: FragmentFavoriteItemBinding) {
-        viewModel.clothsLD.observe(viewLifecycleOwner) {
-            setupRecycler(binding, it)
+    private fun fetchClothsAndUpdateList(binding: FragmentFavoriteItemBinding, adapter: CustomGroupieAdapter) {
+        viewModel.clothsLD.observe(viewLifecycleOwner) { cloths ->
+            if (cloths.isEmpty()) return@observe
+
+            adapter.updateList(cloths)
+
+            val spanSize = DisplayItemKind.values().maxOf { it.spanSize }
+            val gridLayoutManager = GridLayoutManager(requireContext(), spanSize).also {
+                it.spanSizeLookup = CustomGridSpanSizeLookup(adapter.itemList, resources)
+            }
+
+            binding.favoriteItemRecycler.layoutManager = gridLayoutManager
+
         }
         viewModel.fetchDisplayClothsList()
     }
 
-    private fun setupRecycler(binding: FragmentFavoriteItemBinding, itemList: List<FavoriteItemViewModel.DisplayClothsData>) {
-        val adapter = CustomGroupieAdapter(itemList).also {
-            it.updateList()
-        }
-        val gridLayoutManager = GridLayoutManager(requireContext(), DisplayItemKind.values().maxOf { it.spanSize }).also {
-            it.spanSizeLookup = CustomGridSpanSizeLookup(adapter.itemList, resources)
-        }
-
-        binding.favoriteItemRecycler.also {
-            it.adapter = adapter
-            it.layoutManager = gridLayoutManager
-        }
+    private fun setupRecycler(
+        binding: FragmentFavoriteItemBinding,
+        adapter: CustomGroupieAdapter
+    ) {
+        binding.favoriteItemRecycler.adapter = adapter
     }
 
-    private class CustomGroupieAdapter(
-        private val displayDataList: List<FavoriteItemViewModel.DisplayClothsData>
-    ) : GroupieAdapter() {
-        private val _itemList: MutableList<BindableItem<out ViewBinding>> = mutableListOf()
+    private class CustomGroupieAdapter : GroupieAdapter() {
+        private var _itemList: List<BindableItem<out ViewBinding>> = listOf(
+            FavoriteNoItemRegistered(),
+            FavoriteNowPopularItem()
+        )
         val itemList: List<BindableItem<out ViewBinding>>
             get() = _itemList
 
-        private fun createItemCells() {
-            _itemList.add(FavoriteNoItemRegistered())
-            _itemList.add(FavoriteNowPopularItem())
-
-            displayDataList.forEach {
-                _itemList.add(FavoriteItemDescription(it))
+        fun updateList(newItemList: List<FavoriteItemViewModel.DisplayClothsData>) {
+            _itemList = _itemList + newItemList.map {
+                FavoriteItemDescription(displayData = it)
             }
-        }
-
-        fun updateList() {
-            createItemCells()
             update(_itemList)
         }
     }
