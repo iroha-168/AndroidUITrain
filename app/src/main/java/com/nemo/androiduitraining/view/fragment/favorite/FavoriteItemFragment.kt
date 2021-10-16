@@ -41,7 +41,7 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         val adapter = CustomGroupieAdapter(itemList).also {
             it.updateList()
         }
-        val gridLayoutManager = GridLayoutManager(requireContext(), 3).also {
+        val gridLayoutManager = GridLayoutManager(requireContext(), DisplayItemKind.values().maxOf { it.spanSize }).also {
             it.spanSizeLookup = CustomGridSpanSizeLookup(adapter.itemList, resources)
         }
 
@@ -79,11 +79,15 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     ) : GridLayoutManager.SpanSizeLookup() {
         override fun getSpanSize(position: Int): Int {
             return when (nowItemList[position]) {
-                is FavoriteNoItemRegistered -> 3
-                is FavoriteNowPopularItem -> 3
-                is FavoriteItemDescription -> 1
+                is FavoriteNoItemRegistered -> DisplayItemKind.NO_ITEM.spanSize
+                is FavoriteNowPopularItem -> DisplayItemKind.POPULAR.spanSize
+                is FavoriteItemDescription -> DisplayItemKind.DESCRIPTION.spanSize
                 else -> throw IllegalArgumentException(res.getString(R.string.illegal_class))
             }
         }
+    }
+
+    private enum class DisplayItemKind(val spanSize: Int) {
+        NO_ITEM(3), POPULAR(3), DESCRIPTION(1)
     }
 }
