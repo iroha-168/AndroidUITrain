@@ -31,7 +31,7 @@ class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentFavoriteNewItemBinding.bind(view)
 
-        val adapter = GroupieCustomAdapter(resources)
+        val adapter = GroupieCustomAdapter()
         setupRecycler(binding, adapter)
         fetchBrandsItemAndUpdateList(adapter)
     }
@@ -62,7 +62,7 @@ class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
         viewModel.fetchBrandItems()
     }
 
-    private class GroupieCustomAdapter(private val res: Resources) : GroupieAdapter() {
+    private class GroupieCustomAdapter : GroupieAdapter() {
         private var itemList: List<BindableItem<out ViewBinding>> = listOf()
 
         private val defaultViewList = mutableListOf(
@@ -74,8 +74,7 @@ class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
             this.itemList = defaultViewList + brandsList.map {
                 FavoriteItemCell(
                     brandName = it.name,
-                    brandNameJapanese = it.nameJapanese,
-                    res = res
+                    brandNameJapanese = it.nameJapanese
                 )
             }
             update(this.itemList)
