@@ -6,7 +6,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="wrap_content"
         android:background="@color/dark_gray">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -58,7 +58,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/favorite_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="@color/dark_gray" />
     </com.google.android.material.appbar.AppBarLayout>
 
