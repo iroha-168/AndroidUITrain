@@ -1,10 +1,6 @@
 package com.nemo.androiduitraining.view.fragment.favorite.entity
 
-import android.content.res.Resources
 import android.view.View
-import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FavoriteNewItemItemCellBinding
 import com.xwray.groupie.viewbinding.BindableItem
