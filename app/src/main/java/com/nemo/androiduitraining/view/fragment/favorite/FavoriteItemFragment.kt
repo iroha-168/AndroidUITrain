@@ -31,18 +31,12 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         val binding = FragmentFavoriteItemBinding.bind(view)
 
         val adapter = CustomGroupieAdapter()
-        fetchClothsAndUpdateList(binding, adapter)
+        fetchClothsAndUpdateList(adapter)
         setupRecycler(binding, adapter)
     }
 
-    private fun fetchClothsAndUpdateList(binding: FragmentFavoriteItemBinding, adapter: CustomGroupieAdapter) {
+    private fun fetchClothsAndUpdateList(adapter: CustomGroupieAdapter) {
         viewModel.clothsLD.observe(viewLifecycleOwner) { cloths ->
-            val spanSize = DisplayItemKind.values().maxOf { it.spanSize }
-            val gridLayoutManager = GridLayoutManager(requireContext(), spanSize).also {
-                it.spanSizeLookup = CustomGridSpanSizeLookup(adapter, resources)
-            }
-            binding.favoriteItemRecycler.layoutManager = gridLayoutManager
-
             adapter.updateList(cloths)
         }
         viewModel.fetchDisplayClothsList()
@@ -52,6 +46,11 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         binding: FragmentFavoriteItemBinding,
         adapter: CustomGroupieAdapter
     ) {
+        val spanSize = DisplayItemKind.values().maxOf { it.spanSize }
+        val gridLayoutManager = GridLayoutManager(requireContext(), spanSize).also {
+            it.spanSizeLookup = CustomGridSpanSizeLookup(adapter, resources)
+        }
+        binding.favoriteItemRecycler.layoutManager = gridLayoutManager
         binding.favoriteItemRecycler.adapter = adapter
     }
 
