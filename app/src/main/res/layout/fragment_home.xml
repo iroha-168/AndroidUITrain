@@ -20,7 +20,7 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="65dp"
                 android:background="@color/dark_gray"
                 app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
@@ -51,12 +51,12 @@
                     android:background="@color/dark_gray"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_baseline_notifications_none_24"/>
-                
+
             </androidx.appcompat.widget.Toolbar>
 
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:background="@color/dark_gray"/>
 
         </com.google.android.material.appbar.AppBarLayout>
