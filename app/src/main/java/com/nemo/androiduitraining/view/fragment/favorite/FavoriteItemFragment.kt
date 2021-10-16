@@ -2,7 +2,6 @@ package com.nemo.androiduitraining.view.fragment.favorite
 
 import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -10,13 +9,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteItemBinding
-import com.nemo.androiduitraining.view.fragment.favorite.entity.*
+import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteItemDescription
+import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteNoItemRegistered
+import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteNowPopularItem
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
-import java.lang.IllegalArgumentException
 
 @AndroidEntryPoint
 class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
@@ -55,15 +54,17 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     }
 
     private class CustomGroupieAdapter : GroupieAdapter() {
-        private var _itemList: List<BindableItem<out ViewBinding>> = listOf(
-            FavoriteNoItemRegistered(),
-            FavoriteNowPopularItem()
-        )
+        private var _itemList: List<BindableItem<out ViewBinding>> = makeDefaultList()
         val itemList: List<BindableItem<out ViewBinding>>
             get() = _itemList
 
+        private fun makeDefaultList() = listOf(
+            FavoriteNoItemRegistered(),
+            FavoriteNowPopularItem()
+        )
+
         fun updateList(newItemList: List<FavoriteItemViewModel.DisplayClothsData>) {
-            _itemList = _itemList + newItemList.map {
+            _itemList = makeDefaultList() + newItemList.map {
                 FavoriteItemDescription(displayData = it)
             }
             update(_itemList)
