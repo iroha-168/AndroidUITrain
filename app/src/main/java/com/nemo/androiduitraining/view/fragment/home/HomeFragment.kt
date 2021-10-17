@@ -31,7 +31,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         _binding = null
     }
 
-
     private fun createSampleData() {
         for (i in 1..10) {
             sampleTextList.add(i.toString())
