@@ -8,14 +8,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteItemBinding
-import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemDescription
-import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemNoItem
-import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemNowPopular
-import com.nemo.androiduitraining.view.fragment.favorite.entity.item.SpanSizeInterface
+import com.nemo.androiduitraining.view.fragment.favorite.entity.item.*
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
@@ -65,7 +63,11 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
 
         fun updateList(newItems: List<FavoriteItemViewModel.DisplayClothsData>) {
             val newItemList: List<BindableItem<out ViewBinding>> = newItems.map {
-                FavoriteItemDescription(displayData = it)
+                val model = FavoriteItemDescriptionViewModel(
+                    id = UUID.randomUUID().toString(),
+                    displayData = it
+                )
+                FavoriteItemDescription(model = model)
             }
             _itemList = makeDefaultList() + newItemList
             updateAsync(_itemList)
