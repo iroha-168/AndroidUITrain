@@ -78,6 +78,6 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         private val adapter: CustomGroupieAdapter
     ) : GridLayoutManager.SpanSizeLookup() {
         override fun getSpanSize(position: Int) =
-            (adapter.itemList[position] as SpanSizeInterface).spanSize
+            (adapter.getItem(position) as SpanSizeInterface).spanSize
     }
 }
