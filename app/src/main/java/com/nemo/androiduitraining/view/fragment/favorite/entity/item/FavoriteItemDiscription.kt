@@ -4,12 +4,13 @@ import android.view.View
 import coil.load
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FavoriteItemDescriptionBinding
+import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemModel
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
-import com.xwray.groupie.viewbinding.BindableItem
 
 class FavoriteItemDescription(
     private val displayData: FavoriteItemViewModel.DisplayClothsData
-) : BindableItem<FavoriteItemDescriptionBinding>() {
+) : FavoriteItemModel<FavoriteItemDescriptionBinding>() {
+    override val spanSize = 1
     override fun bind(viewBinding: FavoriteItemDescriptionBinding, position: Int) {
         viewBinding.clothsNameTv.text = displayData.itemName
         viewBinding.clothsGenreTv.text = displayData.itemGenre
