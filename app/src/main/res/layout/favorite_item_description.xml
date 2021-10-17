@@ -51,7 +51,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal2"
-                android:contentDescription="@string/image" />
+                android:contentDescription="@string/image"
+                app:imageUrl="@{displayClothsData.itemImage}"/>
 
             <TextView
                 android:id="@+id/discount_percent_tv"
@@ -66,7 +67,8 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="11sp"
-                android:text="@{displayClothsData.makeCouponDiscountPercent(displayClothsData.discountPercent)}" />
+                android:text="@{displayClothsData.makeCouponDiscountPercent(displayClothsData.discountPercent)}"
+                app:visible="@{displayClothsData.hasDiscountPercent()}"/>
 
             <TextView
                 android:id="@+id/coupon_price_tv"
@@ -81,7 +83,8 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="11sp"
-                android:text="@{displayClothsData.makeCouponPrice(displayClothsData.couponPrice)}" />
+                android:text="@{displayClothsData.makeCouponPrice(displayClothsData.couponPrice)}"
+                app:visible="@{displayClothsData.hasCouponPrice()}"/>
 
 
             <TextView
