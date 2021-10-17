@@ -1,10 +1,9 @@
-package com.nemo.androiduitraining.view.fragment.favorite.entity
+package com.nemo.androiduitraining.view.fragment.favorite.entity.item
 
 import android.view.View
 import coil.load
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FavoriteItemDescriptionBinding
-import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemModel
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 
 class FavoriteItemDescription(

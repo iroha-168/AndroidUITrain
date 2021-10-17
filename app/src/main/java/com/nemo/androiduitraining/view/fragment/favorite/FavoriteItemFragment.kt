@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteItemBinding
-import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteItemDescription
+import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemDescription
 import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemModel
 import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemNoItem
 import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemNowPopular
