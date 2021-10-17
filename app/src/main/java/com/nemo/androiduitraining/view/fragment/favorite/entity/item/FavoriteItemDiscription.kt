@@ -11,27 +11,18 @@ class FavoriteItemDescription(
 ) : FavoriteItemModel<FavoriteItemDescriptionBinding>() {
     override val spanSize = 1
     override fun bind(viewBinding: FavoriteItemDescriptionBinding, position: Int) {
-        viewBinding.clothsNameTv.text = displayData.itemName
-        viewBinding.clothsGenreTv.text = displayData.itemGenre
-        viewBinding.clothsPriceTv.text = displayData.itemPrice.toString()
-
+        viewBinding.displayClothsData = displayData
         viewBinding.mainImage.load(displayData.itemImage) {
             this.error(R.drawable.ic_android_black_24dp)
         }
 
         when (displayData.hasDiscountPercent()) {
-            true -> {
-                viewBinding.discountPercentTv.visibility = View.VISIBLE
-                viewBinding.discountPercentTv.text = displayData.discountPercent.toString()
-            }
+            true -> viewBinding.discountPercentTv.visibility = View.VISIBLE
             else -> viewBinding.discountPercentTv.visibility = View.GONE
         }
 
         when (displayData.hasCouponPrice()) {
-            true -> {
-                viewBinding.couponPriceTv.visibility = View.VISIBLE
-                viewBinding.couponPriceTv.text = displayData.couponPrice.toString()
-            }
+            true -> viewBinding.couponPriceTv.visibility = View.VISIBLE
             else -> viewBinding.couponPriceTv.visibility = View.GONE
         }
     }

@@ -75,5 +75,8 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
     ) {
         fun hasDiscountPercent() = discountPercent != null
         fun hasCouponPrice() = couponPrice != null
+        fun makePriceText(price: Int) = "¥$price"
+        fun makeCouponPrice(couponPrice: Int?) = "¥${couponPrice}クーポン"
+        fun makeCouponDiscountPercent(discountPercent: Int?) = "${discountPercent}%OFF"
     }
 }
