@@ -5,10 +5,11 @@ import coil.load
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FavoriteItemDescriptionBinding
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
+import com.xwray.groupie.viewbinding.BindableItem
 
 class FavoriteItemDescription(
     private val displayData: FavoriteItemViewModel.DisplayClothsData
-) : FavoriteItemModel<FavoriteItemDescriptionBinding>() {
+) : BindableItem<FavoriteItemDescriptionBinding>(), SpanSizeInterface {
     override val spanSize = 1
     override fun bind(viewBinding: FavoriteItemDescriptionBinding, position: Int) {
         viewBinding.displayClothsData = displayData
