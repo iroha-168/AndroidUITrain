@@ -17,7 +17,7 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
         val displayList = mutableListOf<DisplayClothsData>()
 
         for(i in 0..29) {
-            val data = when (Random.nextInt(3)) {
+            val data = when (Random.nextInt(4)) {
                 0 -> fullData
                 1 -> missPercentData
                 2 -> missCouponData
