@@ -1,11 +1,11 @@
-package com.nemo.androiduitraining.view.fragment.favorite.entity
+package com.nemo.androiduitraining.view.fragment.favorite.entity.newItem
 
 import android.view.View
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FavoriteNewItemNoBrandRegisteredBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
-class FavoriteNoBrandRegistered : BindableItem<FavoriteNewItemNoBrandRegisteredBinding>(){
+class FavoriteNewNoBrand : BindableItem<FavoriteNewItemNoBrandRegisteredBinding>(){
     override fun bind(viewBinding: FavoriteNewItemNoBrandRegisteredBinding, position: Int) {
 
     }

@@ -10,8 +10,8 @@ import androidx.viewbinding.ViewBinding
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteItemBinding
 import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteItemDescription
-import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteNoItemRegistered
-import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteNowPopularItem
+import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemNoItem
+import com.nemo.androiduitraining.view.fragment.favorite.entity.item.FavoriteItemNowPopular
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
@@ -59,8 +59,8 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
             get() = _itemList
 
         private fun makeDefaultList() = listOf(
-            FavoriteNoItemRegistered(),
-            FavoriteNowPopularItem()
+            FavoriteItemNoItem(),
+            FavoriteItemNowPopular()
         )
 
         fun updateList(newItemList: List<FavoriteItemViewModel.DisplayClothsData>) {
@@ -77,8 +77,8 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
     ) : GridLayoutManager.SpanSizeLookup() {
         override fun getSpanSize(position: Int): Int {
             return when (adapter.itemList[position]) {
-                is FavoriteNoItemRegistered -> DisplayItemKind.NO_ITEM.spanSize
-                is FavoriteNowPopularItem -> DisplayItemKind.POPULAR.spanSize
+                is FavoriteItemNoItem -> DisplayItemKind.NO_ITEM.spanSize
+                is FavoriteItemNowPopular -> DisplayItemKind.POPULAR.spanSize
                 is FavoriteItemDescription -> DisplayItemKind.DESCRIPTION.spanSize
                 else -> throw IllegalArgumentException(res.getString(R.string.illegal_class))
             }
