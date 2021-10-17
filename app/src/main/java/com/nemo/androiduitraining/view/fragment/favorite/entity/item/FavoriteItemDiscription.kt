@@ -19,20 +19,20 @@ class FavoriteItemDescription(
             this.error(R.drawable.ic_android_black_24dp)
         }
 
-        when (val percent = displayData.discountPercent) {
-            null -> viewBinding.discountPercentTv.visibility = View.GONE
-            else -> {
+        when (displayData.hasDiscountPercent()) {
+            true -> {
                 viewBinding.discountPercentTv.visibility = View.VISIBLE
-                viewBinding.discountPercentTv.text = percent.toString()
+                viewBinding.discountPercentTv.text = displayData.discountPercent.toString()
             }
+            else -> viewBinding.discountPercentTv.visibility = View.GONE
         }
 
-        when (val price = displayData.couponPrice) {
-            null -> viewBinding.couponPriceTv.visibility = View.GONE
-            else -> {
+        when (displayData.hasCouponPrice()) {
+            true -> {
                 viewBinding.couponPriceTv.visibility = View.VISIBLE
-                viewBinding.couponPriceTv.text = price.toString()
+                viewBinding.couponPriceTv.text = displayData.couponPrice.toString()
             }
+            else -> viewBinding.couponPriceTv.visibility = View.GONE
         }
     }
 

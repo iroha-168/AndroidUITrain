@@ -72,5 +72,8 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
         val itemName: String,
         val itemGenre: String,
         val itemPrice: Int
-    )
+    ) {
+        fun hasDiscountPercent() = discountPercent != null
+        fun hasCouponPrice() = couponPrice != null
+    }
 }
