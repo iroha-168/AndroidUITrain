@@ -69,7 +69,7 @@ class FavoriteNewItemFragment : Fragment(R.layout.fragment_favorite_new_item) {
             FavoriteNowPopular()
         )
 
-        fun updateList(brandsList: List<FavoriteNewItemViewModel.BrandItem>) {
+        fun updateList(brandsList: List<FavoriteNewItemViewModel.ItemTabBrandItem>) {
             this.itemList = defaultViewList + brandsList.map {
                 FavoriteItemCell(
                     brandName = it.name,
