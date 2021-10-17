@@ -1,6 +1,5 @@
 package com.nemo.androiduitraining.view.fragment.favorite
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat

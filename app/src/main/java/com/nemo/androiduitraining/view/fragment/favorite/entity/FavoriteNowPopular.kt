@@ -7,7 +7,6 @@ import com.xwray.groupie.viewbinding.BindableItem
 
 class FavoriteNowPopular : BindableItem<FavoriteNewItemNowPopularBinding>() {
     override fun bind(viewBinding: FavoriteNewItemNowPopularBinding, position: Int) {
-
     }
 
     override fun getLayout() = R.layout.favorite_new_item_now_popular
