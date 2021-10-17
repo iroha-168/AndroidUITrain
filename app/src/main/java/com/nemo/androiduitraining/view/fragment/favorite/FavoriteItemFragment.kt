@@ -67,7 +67,7 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
                 FavoriteItemDescription(displayData = it)
             }
             _itemList = makeDefaultList() + newItemList
-            update(_itemList)
+            updateAsync(_itemList)
         }
     }
 
