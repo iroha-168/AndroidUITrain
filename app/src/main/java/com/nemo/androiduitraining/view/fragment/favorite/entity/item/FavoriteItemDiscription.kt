@@ -12,7 +12,7 @@ data class FavoriteItemDescriptionViewModel(
     val displayData: FavoriteItemViewModel.DisplayClothsData
 )
 
-data class FavoriteItemDescription(
+class FavoriteItemDescription(
     val model: FavoriteItemDescriptionViewModel
 ) : BindableItem<FavoriteItemDescriptionBinding>(), HasSpanSizeItem {
     override val spanSize = 1
@@ -27,8 +27,7 @@ data class FavoriteItemDescription(
     }
 
     override fun isSameAs(other: Item<*>): Boolean {
-        if (other !is FavoriteItemDescription) return false
-        return other.model.id == this.model.id
+        return (other as? FavoriteItemDescription)?.model?.id == model.id
     }
 
     override fun hasSameContentAs(other: Item<*>): Boolean {
