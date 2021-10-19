@@ -24,6 +24,6 @@ class FavoriteItemNoItem : BindableItem<FavoriteItemNoItemRegisteredBinding>(), 
     }
 
     override fun hasSameContentAs(other: Item<*>): Boolean {
-        return other !is FavoriteItemNoItem
+        return isSameAs(other)
     }
 }

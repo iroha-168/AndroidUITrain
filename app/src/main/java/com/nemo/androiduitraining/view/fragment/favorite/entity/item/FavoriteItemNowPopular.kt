@@ -23,6 +23,6 @@ class FavoriteItemNowPopular : BindableItem<FavoriteItemNowPopularBinding>(), Ha
     }
 
     override fun hasSameContentAs(other: Item<*>): Boolean {
-        return other is FavoriteItemNowPopular
+        return isSameAs(other)
     }
 }
