@@ -14,7 +14,7 @@ data class FavoriteItemDescriptionViewModel(
 
 data class FavoriteItemDescription(
     val model: FavoriteItemDescriptionViewModel
-) : BindableItem<FavoriteItemDescriptionBinding>(), SpanSizeInterface {
+) : BindableItem<FavoriteItemDescriptionBinding>(), HasSpanSizeItem {
     override val spanSize = 1
     override fun bind(viewBinding: FavoriteItemDescriptionBinding, position: Int) {
         viewBinding.displayClothsData = model.displayData

@@ -43,7 +43,7 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         binding: FragmentFavoriteItemBinding,
         adapter: CustomGroupieAdapter
     ) {
-        val spanSize = adapter.itemList.maxOf { item -> (item as SpanSizeInterface).spanSize }
+        val spanSize = adapter.itemList.maxOf { item -> (item as HasSpanSizeItem).spanSize }
         val gridLayoutManager = GridLayoutManager(requireContext(), spanSize).also {
             it.spanSizeLookup = CustomGridSpanSizeLookup(adapter)
         }
@@ -78,6 +78,6 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
         private val adapter: CustomGroupieAdapter
     ) : GridLayoutManager.SpanSizeLookup() {
         override fun getSpanSize(position: Int) =
-            (adapter.getItem(position) as SpanSizeInterface).spanSize
+            (adapter.getItem(position) as HasSpanSizeItem).spanSize
     }
 }

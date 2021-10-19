@@ -6,7 +6,7 @@ import com.nemo.androiduitraining.databinding.FavoriteItemNowPopularBinding
 import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 
-class FavoriteItemNowPopular : BindableItem<FavoriteItemNowPopularBinding>(), SpanSizeInterface {
+class FavoriteItemNowPopular : BindableItem<FavoriteItemNowPopularBinding>(), HasSpanSizeItem {
     override val spanSize = 3
     override fun bind(viewBinding: FavoriteItemNowPopularBinding, position: Int) {
 

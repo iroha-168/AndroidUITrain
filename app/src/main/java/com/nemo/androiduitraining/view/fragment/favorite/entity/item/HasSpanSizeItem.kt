@@ -1,5 +1,5 @@
 package com.nemo.androiduitraining.view.fragment.favorite.entity.item
 
-interface SpanSizeInterface {
+interface HasSpanSizeItem {
     val spanSize: Int
 }
