@@ -8,7 +8,7 @@ import javax.inject.Inject
 import kotlin.random.Random
 
 @HiltViewModel
-class FavoriteItemViewModel @Inject constructor(): ViewModel() {
+class FavoriteItemViewModel @Inject constructor() : ViewModel() {
     private val _clothsLD = MutableLiveData<List<DisplayClothsData>>()
     val clothsLD: LiveData<List<DisplayClothsData>>
         get() = _clothsLD
@@ -16,7 +16,7 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
     fun fetchDisplayClothsList() {
         val displayList = mutableListOf<DisplayClothsData>()
 
-        for(i in 0..29) {
+        for (i in 0..29) {
             val data = when (Random.nextInt(4)) {
                 0 -> fullData
                 1 -> missPercentData
@@ -77,6 +77,6 @@ class FavoriteItemViewModel @Inject constructor(): ViewModel() {
         fun hasCouponPrice() = couponPrice != null
         fun makePriceText(price: Int) = "¥$price"
         fun makeCouponPrice(couponPrice: Int?) = "¥${couponPrice}クーポン"
-        fun makeCouponDiscountPercent(discountPercent: Int?) = "${discountPercent}%OFF"
+        fun makeCouponDiscountPercent(discountPercent: Int?) = "$discountPercent%OFF"
     }
 }

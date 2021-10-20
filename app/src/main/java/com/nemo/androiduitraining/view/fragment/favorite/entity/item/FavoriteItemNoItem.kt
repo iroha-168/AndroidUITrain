@@ -9,7 +9,6 @@ import com.xwray.groupie.viewbinding.BindableItem
 class FavoriteItemNoItem : BindableItem<FavoriteItemNoItemRegisteredBinding>(), HasSpanSizeItem {
     override val spanSize = 3
     override fun bind(viewBinding: FavoriteItemNoItemRegisteredBinding, position: Int) {
-
     }
 
     override fun getLayout() = R.layout.favorite_item_no_item_registered
