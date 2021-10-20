@@ -63,11 +63,7 @@ class FavoriteItemFragment : Fragment(R.layout.fragment_favorite_item) {
 
         fun updateList(newItems: List<FavoriteItemViewModel.DisplayClothsData>) {
             val newItemList: List<BindableItem<out ViewBinding>> = newItems.map {
-                val model = FavoriteItemDescriptionViewModel(
-                    id = UUID.randomUUID().toString(),
-                    displayData = it
-                )
-                FavoriteItemDescription(model = model)
+                FavoriteItemDescription(displayData = it)
             }
             _itemList = makeDefaultList() + newItemList
             updateAsync(_itemList)

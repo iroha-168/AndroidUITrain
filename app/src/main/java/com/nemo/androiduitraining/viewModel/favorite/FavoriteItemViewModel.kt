@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import java.util.*
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -30,6 +31,7 @@ class FavoriteItemViewModel @Inject constructor() : ViewModel() {
     }
 
     private val fullData = DisplayClothsData(
+        id = UUID.randomUUID().toString(),
         itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = 50,
         couponPrice = 300,
@@ -39,6 +41,7 @@ class FavoriteItemViewModel @Inject constructor() : ViewModel() {
     )
 
     private val missPercentData = DisplayClothsData(
+        id = UUID.randomUUID().toString(),
         itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = null,
         couponPrice = 300,
@@ -48,6 +51,7 @@ class FavoriteItemViewModel @Inject constructor() : ViewModel() {
     )
 
     private val missCouponData = DisplayClothsData(
+        id = UUID.randomUUID().toString(),
         itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = 50,
         couponPrice = null,
@@ -57,6 +61,7 @@ class FavoriteItemViewModel @Inject constructor() : ViewModel() {
     )
 
     private val missBothData = DisplayClothsData(
+        id = UUID.randomUUID().toString(),
         itemImage = "https://shop.adidas.jp/photo/GN/GN3458/z-GN3458-on_model-standard_view.jpg",
         discountPercent = null,
         couponPrice = null,
@@ -66,6 +71,7 @@ class FavoriteItemViewModel @Inject constructor() : ViewModel() {
     )
 
     data class DisplayClothsData(
+        val id: String,
         val itemImage: String,
         val discountPercent: Int?,
         val couponPrice: Int?,

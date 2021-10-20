@@ -7,17 +7,12 @@ import com.nemo.androiduitraining.viewModel.favorite.FavoriteItemViewModel
 import com.xwray.groupie.Item
 import com.xwray.groupie.viewbinding.BindableItem
 
-data class FavoriteItemDescriptionViewModel(
-    val id: String,
-    val displayData: FavoriteItemViewModel.DisplayClothsData
-)
-
 class FavoriteItemDescription(
-    val model: FavoriteItemDescriptionViewModel
+    val displayData: FavoriteItemViewModel.DisplayClothsData
 ) : BindableItem<FavoriteItemDescriptionBinding>(), HasSpanSizeItem {
     override val spanSize = 1
     override fun bind(viewBinding: FavoriteItemDescriptionBinding, position: Int) {
-        viewBinding.displayClothsData = model.displayData
+        viewBinding.displayClothsData = displayData
     }
 
     override fun getLayout() = R.layout.favorite_item_description
@@ -27,10 +22,10 @@ class FavoriteItemDescription(
     }
 
     override fun isSameAs(other: Item<*>): Boolean {
-        return (other as? FavoriteItemDescription)?.model == this.model
+        return (other as? FavoriteItemDescription)?.displayData == this.displayData
     }
 
     override fun hasSameContentAs(other: Item<*>): Boolean {
-        return (other as? FavoriteItemDescription)?.model?.id == this.model.id
+        return (other as? FavoriteItemDescription)?.displayData?.id == this.displayData.id
     }
 }
