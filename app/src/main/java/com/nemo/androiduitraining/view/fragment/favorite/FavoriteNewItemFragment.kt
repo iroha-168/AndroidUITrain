@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteNewItemBinding
-import com.nemo.androiduitraining.view.fragment.favorite.entity.newItem.FavoriteNewItemCell
-import com.nemo.androiduitraining.view.fragment.favorite.entity.newItem.FavoriteNewNoBrand
-import com.nemo.androiduitraining.view.fragment.favorite.entity.newItem.FavoriteNewNowPopular
+import com.nemo.androiduitraining.view.fragment.favorite.uiModel.newItem.FavoriteNewItemCell
+import com.nemo.androiduitraining.view.fragment.favorite.uiModel.newItem.FavoriteNewNoBrand
+import com.nemo.androiduitraining.view.fragment.favorite.uiModel.newItem.FavoriteNewNowPopular
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteNewItemViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
