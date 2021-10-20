@@ -27,11 +27,10 @@ class FavoriteItemDescription(
     }
 
     override fun isSameAs(other: Item<*>): Boolean {
-        return (other as? FavoriteItemDescription)?.model?.id == model.id
+        return (other as? FavoriteItemDescription)?.model == this.model
     }
 
     override fun hasSameContentAs(other: Item<*>): Boolean {
-        if (other !is FavoriteItemDescription) return false
-        return other.model == this.model
+        return (other as? FavoriteItemDescription)?.model?.id == this.model.id
     }
 }
