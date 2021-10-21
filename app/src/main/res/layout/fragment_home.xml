@@ -65,12 +65,14 @@
                     android:background="@drawable/shape_rounded_corners_10dp"
                     android:layout_marginHorizontal="25dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     android:hint="すべてのアイテムから探す"
                     android:textStyle="bold"
-                    android:textCursorDrawable="@color/light_blue"
+                    android:textCursorDrawable="@drawable/shape_cursor"
                     android:drawableLeft="@drawable/ic_baseline_search_24"
                     android:paddingStart="15dp"/>
 
