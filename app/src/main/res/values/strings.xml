@@ -11,4 +11,14 @@
     <string name="search_title">全てのアイテムから探す</string>
     <string name="search_action_bell">鈴</string>
     <string name="search_action_basket">カート</string>
+    <!--FavoriteFragment-->
+    <string name="cart">カート</string>
+    <string name="bell">ベル</string>
+    <string name="favorite_item_fragment">FavoriteItemFragment</string>
+    <string name="favorite_new_item_fragment">FavoriteNewItemFragment</string>
+    <string name="favorite_brand_fragment">FavoriteBrandFragment</string>
+    <string name="no_favorite_brand">お気に入りのブランドの登録がありません</string>
+    <string name="no_brand_sub_text">気になるブランドをお気に入りに登録すると、\nブランドの新着アイテムがまとめてチェックできます。</string>
+    <string name="image">画像</string>
+    <string name="now_popular_brand">今人気のブランド</string>
 </resources>
