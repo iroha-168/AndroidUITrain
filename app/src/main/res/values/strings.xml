@@ -16,4 +16,6 @@
     <string name="no_brand_sub_text">気になるブランドをお気に入りに登録すると、\nブランドの新着アイテムがまとめてチェックできます。</string>
     <string name="image">画像</string>
     <string name="now_popular_brand">今人気のブランド</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
