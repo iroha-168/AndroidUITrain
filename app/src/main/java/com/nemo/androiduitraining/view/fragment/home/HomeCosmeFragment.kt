@@ -17,7 +17,6 @@ class HomeCosmeFragment : Fragment(R.layout.fragment_home_cosme) {
         get() = _binding!!
     var sampleTextList: ArrayList<String> = ArrayList()
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

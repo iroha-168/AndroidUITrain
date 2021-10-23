@@ -35,12 +35,10 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         _binding = null
     }
 
-
     // RecyclerViewに配置する適当な数字を作成
     private fun createSampleData() {
         for (i in 1..10) {
             sampleTextList.add(i.toString())
         }
     }
-
 }

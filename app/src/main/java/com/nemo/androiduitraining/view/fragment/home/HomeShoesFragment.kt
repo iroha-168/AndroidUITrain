@@ -42,5 +42,4 @@ class HomeShoesFragment : Fragment(R.layout.fragment_home_shoes) {
             sampleTextList.add(i.toString())
         }
     }
-
 }

@@ -3,7 +3,6 @@ package com.nemo.androiduitraining.view.fragment.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nemo.androiduitraining.R
@@ -30,14 +29,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         _binding = null
     }
 
-
     private fun setUpViewPager2(adapter: HomeViewPagerAdapter) {
         binding.homeViewPager.adapter = adapter
     }
 
     private fun connectTabLayoutAndViewPager2() {
         TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager) { tab, position ->
-            val tabTitle = when(position) {
+            val tabTitle = when (position) {
                 FragmentsOrder.ALL.ordinal -> FragmentsOrder.ALL.title
                 FragmentsOrder.SHOES.ordinal -> FragmentsOrder.SHOES.title
                 FragmentsOrder.COSME.ordinal -> FragmentsOrder.COSME.title
@@ -50,7 +48,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private class HomeViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
         override fun getItemCount(): Int = FragmentsOrder.values().size
         override fun createFragment(position: Int): Fragment {
-            return when(position) {
+            return when (position) {
                 FragmentsOrder.ALL.ordinal -> HomeAllFragment.newInstance()
                 FragmentsOrder.SHOES.ordinal -> HomeShoesFragment.newInstance()
                 FragmentsOrder.COSME.ordinal -> HomeCosmeFragment.newInstance()
@@ -59,9 +57,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private enum class FragmentsOrder(val title: String)  {
+    private enum class FragmentsOrder(val title: String) {
         ALL("すべて"), SHOES("シューズ"), COSME("コスメ")
     }
 }
-
-
