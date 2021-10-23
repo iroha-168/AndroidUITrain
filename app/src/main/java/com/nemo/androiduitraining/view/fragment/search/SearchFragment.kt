@@ -11,19 +11,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private val binding: FragmentSearchBinding
         get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSearchBinding.bind(view)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
-        super.onCreateOptionsMenu(menu, inflater)
-
     }
 
     override fun onDestroyView() {
