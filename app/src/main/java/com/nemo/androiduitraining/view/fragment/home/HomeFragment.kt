@@ -14,20 +14,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding
     get() = _binding!!
-    var sampleTextList: ArrayList<String> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHomeBinding.bind(view)
-
-        // RecyclerViewに表示するサンプルデータを作成
-//        createSampleData()
-
-        // RecyclerViewに適当に文字列を表示するためのAdapterの設定
-        /*
-        binding.containerForRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.containerForRecyclerView.adapter = SampleAdapter(sampleTextList)
-         */
 
         // ViewPagerのAdapterの設定
         val homeViewPagerAdapter = HomeViewPagerAdapter(this)
@@ -40,12 +30,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         _binding = null
     }
 
-    // TODO:消す
-    private fun createSampleData() {
-        for (i in 1..10) {
-            sampleTextList.add(i.toString())
-        }
-    }
 
     private fun setUpViewPager2(adapter: HomeViewPagerAdapter) {
         binding.homeViewPager.adapter = adapter
