@@ -1,4 +1,4 @@
-package com.nemo.androiduitraining.view.fragment.favorite.entity
+package com.nemo.androiduitraining.view.fragment.favorite.uiModel.brand
 
 import android.view.View
 import com.nemo.androiduitraining.R

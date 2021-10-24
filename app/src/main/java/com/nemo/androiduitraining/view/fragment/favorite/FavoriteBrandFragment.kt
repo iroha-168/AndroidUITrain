@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentFavoriteBrandBinding
-import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteItemCell
-import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteNoBrandRegistered
-import com.nemo.androiduitraining.view.fragment.favorite.entity.FavoriteNowPopular
+import com.nemo.androiduitraining.view.fragment.favorite.uiModel.brand.FavoriteBrandItemCell
+import com.nemo.androiduitraining.view.fragment.favorite.uiModel.brand.FavoriteBrandNoBrandRegistered
+import com.nemo.androiduitraining.view.fragment.favorite.uiModel.brand.FavoriteBrandNowPopular
 import com.nemo.androiduitraining.viewModel.favorite.FavoriteBrandViewModel
 import com.xwray.groupie.GroupieAdapter
 import com.xwray.groupie.viewbinding.BindableItem
@@ -64,16 +64,13 @@ class FavoriteBrandFragment : Fragment(R.layout.fragment_favorite_brand) {
         private var itemList: List<BindableItem<out ViewBinding>> = listOf()
 
         private val defaultViewList = mutableListOf(
-            FavoriteNoBrandRegistered(),
-            FavoriteNowPopular()
+            FavoriteBrandNoBrandRegistered(),
+            FavoriteBrandNowPopular()
         )
 
         fun updateList(brandsList: List<FavoriteBrandViewModel.BrandTabBrandItem>) {
             this.itemList = defaultViewList + brandsList.map {
-                FavoriteItemCell(
-                    brandName = it.name,
-                    brandNameJapanese = it.nameJapanese
-                )
+                FavoriteBrandItemCell()
             }
             update(this.itemList)
         }
