@@ -1,7 +1,9 @@
 package com.nemo.androiduitraining.view.fragment.home
 
 import android.os.Bundle
+import android.provider.Settings.Global.getString
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -21,8 +23,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         // ViewPagerのAdapterの設定
         val homeViewPagerAdapter = HomeViewPagerAdapter(this)
-        setUpViewPager2(homeViewPagerAdapter)
-        connectTabLayoutAndViewPager2()
+        setupViewPager(homeViewPagerAdapter)
     }
 
     override fun onDestroyView() {
@@ -31,36 +32,33 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
 
-    private fun setUpViewPager2(adapter: HomeViewPagerAdapter) {
-        binding.homeViewPager.adapter = adapter
-    }
 
-    private fun connectTabLayoutAndViewPager2() {
+    private fun setupViewPager(adapter: HomeViewPagerAdapter) {
+        binding.homeViewPager.adapter = adapter
+
         TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager) { tab, position ->
-            val tabTitle = when(position) {
-                FragmentsOrder.ALL.ordinal -> FragmentsOrder.ALL.title
-                FragmentsOrder.SHOES.ordinal -> FragmentsOrder.SHOES.title
-                FragmentsOrder.COSME.ordinal -> FragmentsOrder.COSME.title
-                else -> ""
-            }
+            val tabTitle = getString(FragmentsOrder.values()[position].titleResId)
             tab.text = tabTitle
         }.attach()
     }
 
     private class HomeViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
+        val errorMsg = getString(R.string.error_msg_not_found_fragment)
         override fun getItemCount(): Int = FragmentsOrder.values().size
         override fun createFragment(position: Int): Fragment {
             return when(position) {
                 FragmentsOrder.ALL.ordinal -> HomeAllFragment.newInstance()
                 FragmentsOrder.SHOES.ordinal -> HomeShoesFragment.newInstance()
                 FragmentsOrder.COSME.ordinal -> HomeCosmeFragment.newInstance()
-                else -> throw IllegalArgumentException("予想外のFragmentです")
+                else -> throw IllegalArgumentException("予想外のフラグメントです")
             }
         }
     }
 
-    private enum class FragmentsOrder(val title: String)  {
-        ALL("すべて"), SHOES("シューズ"), COSME("コスメ")
+    private enum class FragmentsOrder(val titleResId: Int)  {
+        ALL(R.string.all),
+        SHOES(R.string.shoes),
+        COSME(R.string.cosme)
     }
 }
 

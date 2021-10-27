@@ -70,7 +70,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:hint="すべてのアイテムから探す"
+                    android:hint="@string/search_form_hint"
                     android:textStyle="bold"
                     android:textCursorDrawable="@drawable/shape_cursor"
                     android:drawableLeft="@drawable/ic_baseline_search_24"

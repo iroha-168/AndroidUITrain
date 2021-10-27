@@ -18,4 +18,11 @@
     <string name="now_popular_brand">今人気のブランド</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <!--HomeFragment-->
+    <string name="all">すべて</string>
+    <string name="shoes">シューズ</string>
+    <string name="cosme">コスメ</string>
+    <string name="search_form_hint">すべてのアイテムから探す</string>
+    <string name="error_msg_not_found_fragment">予想外のFragmentです</string>
 </resources>

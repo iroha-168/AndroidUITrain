@@ -12,28 +12,18 @@ class HomeShoesFragment : Fragment(R.layout.fragment_home_shoes) {
         fun newInstance() = HomeShoesFragment()
     }
 
-    private var _binding: FragmentHomeShoesBinding? = null
-    private val binding: FragmentHomeShoesBinding
-        get() = _binding!!
     var sampleTextList: ArrayList<String> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentHomeShoesBinding.bind(view)
+        val binding = FragmentHomeShoesBinding.bind(view)
 
         // RecyclerViewに表示するサンプルデータを作成
         createSampleData()
 
         // RecyclerViewに適当に文字列を表示するためのAdapterの設定
-        binding.shoesRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.shoesRecyclerView.adapter = SampleAdapter(sampleTextList)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        _binding = null
     }
 
     // RecyclerViewに配置する適当な数字を作成

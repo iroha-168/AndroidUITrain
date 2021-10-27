@@ -12,29 +12,19 @@ class HomeCosmeFragment : Fragment(R.layout.fragment_home_cosme) {
         fun newInstance() = HomeCosmeFragment()
     }
 
-    private var _binding: FragmentHomeCosmeBinding? = null
-    private val binding: FragmentHomeCosmeBinding
-        get() = _binding!!
     var sampleTextList: ArrayList<String> = ArrayList()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentHomeCosmeBinding.bind(view)
+        val binding = FragmentHomeCosmeBinding.bind(view)
 
         // RecyclerViewに表示するサンプルデータを作成
         createSampleData()
 
         // RecyclerViewに適当に文字列を表示するためのAdapterの設定
-        binding.cosmeRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.cosmeRecyclerView.adapter = SampleAdapter(sampleTextList)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        _binding = null
     }
 
     // RecyclerViewに配置する適当な数字を作成
