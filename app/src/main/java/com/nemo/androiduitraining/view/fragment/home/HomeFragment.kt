@@ -3,7 +3,6 @@ package com.nemo.androiduitraining.view.fragment.home
 import android.os.Bundle
 import android.provider.Settings.Global.getString
 import android.view.View
-import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
@@ -29,7 +28,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onDestroyView()
         _binding = null
     }
-
 
     private fun setupViewPager(adapter: HomeViewPagerAdapter) {
         binding.homeViewPager.adapter = adapter
