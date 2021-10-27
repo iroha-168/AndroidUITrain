@@ -5,7 +5,6 @@ import android.provider.Settings.Global.getString
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nemo.androiduitraining.R
@@ -32,21 +31,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
 
-
     private fun setupViewPager(adapter: HomeViewPagerAdapter) {
         binding.homeViewPager.adapter = adapter
 
         TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager) { tab, position ->
             val tabTitle = getString(FragmentsOrder.values()[position].titleResId)
+
             tab.text = tabTitle
         }.attach()
     }
 
     private class HomeViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
-        val errorMsg = getString(R.string.error_msg_not_found_fragment)
+//        val errorMsg = getString(R.string.error_msg_not_found_fragment)
         override fun getItemCount(): Int = FragmentsOrder.values().size
         override fun createFragment(position: Int): Fragment {
-            return when(position) {
+            return when (position) {
                 FragmentsOrder.ALL.ordinal -> HomeAllFragment.newInstance()
                 FragmentsOrder.SHOES.ordinal -> HomeShoesFragment.newInstance()
                 FragmentsOrder.COSME.ordinal -> HomeCosmeFragment.newInstance()
@@ -55,11 +54,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private enum class FragmentsOrder(val titleResId: Int)  {
+    private enum class FragmentsOrder(val titleResId: Int) {
         ALL(R.string.all),
         SHOES(R.string.shoes),
         COSME(R.string.cosme)
     }
 }
-
-

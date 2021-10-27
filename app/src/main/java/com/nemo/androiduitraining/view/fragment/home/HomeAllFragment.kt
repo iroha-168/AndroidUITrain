@@ -32,5 +32,4 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
             sampleTextList.add(i.toString())
         }
     }
-
 }
