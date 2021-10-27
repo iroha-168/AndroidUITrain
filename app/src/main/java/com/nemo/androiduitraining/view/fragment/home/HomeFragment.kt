@@ -42,7 +42,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private class HomeViewPagerAdapter(parentFragment: Fragment) : FragmentStateAdapter(parentFragment) {
-//        val errorMsg = getString(R.string.error_msg_not_found_fragment)
+        val errorMsg = parentFragment.getString(R.string.error_msg_not_found_fragment)
         override fun getItemCount(): Int = FragmentsOrder.values().size
         override fun createFragment(position: Int): Fragment {
             return when (position) {

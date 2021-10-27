@@ -21,14 +21,14 @@
     
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="now_popular_item">今人気のアイテム</string>
+    <string name="illegal_class">"想定外のクラスです"</string>
+
+    <!--HomeFragment-->
     <string name="all">すべて</string>
     <string name="shoes">シューズ</string>
     <string name="cosme">コスメ</string>
     <string name="search_form_hint">すべてのアイテムから探す</string>
     <string name="error_msg_not_found_fragment">予想外のFragmentです</string>
-
-
-    <string name="now_popular_item">今人気のアイテム</string>
-    <string name="illegal_class">"想定外のクラスです"</string>
 
 </resources>
