@@ -13,16 +13,22 @@
     <string name="favorite_new_item_fragment">FavoriteNewItemFragment</string>
     <string name="favorite_brand_fragment">FavoriteBrandFragment</string>
     <string name="no_favorite_brand">お気に入りのブランドの登録がありません</string>
+    <string name="no_favorite_item">お気に入りアイテムの登録がありません</string>
     <string name="no_brand_sub_text">気になるブランドをお気に入りに登録すると、\nブランドの新着アイテムがまとめてチェックできます。</string>
+    <string name="no_item_sub_text">お気に入りに登録するとこの画面に保存され、\nクーポンやセールの時にいち早くお知らせします。</string>
     <string name="image">画像</string>
     <string name="now_popular_brand">今人気のブランド</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     
-    <!--HomeFragment-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="all">すべて</string>
     <string name="shoes">シューズ</string>
     <string name="cosme">コスメ</string>
     <string name="search_form_hint">すべてのアイテムから探す</string>
     <string name="error_msg_not_found_fragment">予想外のFragmentです</string>
+
+
+    <string name="now_popular_item">今人気のアイテム</string>
+    <string name="illegal_class">"想定外のクラスです"</string>
 </resources>
+
