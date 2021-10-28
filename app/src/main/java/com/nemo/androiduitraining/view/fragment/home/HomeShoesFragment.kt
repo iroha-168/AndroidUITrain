@@ -18,10 +18,8 @@ class HomeShoesFragment : Fragment(R.layout.fragment_home_shoes) {
 
         val binding = FragmentHomeShoesBinding.bind(view)
 
-        // RecyclerViewに表示するサンプルデータを作成
         createSampleData()
 
-        // RecyclerViewに適当に文字列を表示するためのAdapterの設定
         binding.shoesRecyclerView.adapter = SampleAdapter(sampleTextList)
     }
 

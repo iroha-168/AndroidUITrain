@@ -47,7 +47,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 FragmentsOrder.ALL.ordinal -> HomeAllFragment.newInstance()
                 FragmentsOrder.SHOES.ordinal -> HomeShoesFragment.newInstance()
                 FragmentsOrder.COSME.ordinal -> HomeCosmeFragment.newInstance()
-                else -> throw IllegalArgumentException("予想外のフラグメントです")
+                else -> throw IllegalArgumentException(errorMsg)
             }
         }
     }

@@ -18,10 +18,8 @@ class HomeCosmeFragment : Fragment(R.layout.fragment_home_cosme) {
 
         val binding = FragmentHomeCosmeBinding.bind(view)
 
-        // RecyclerViewに表示するサンプルデータを作成
         createSampleData()
 
-        // RecyclerViewに適当に文字列を表示するためのAdapterの設定
         binding.cosmeRecyclerView.adapter = SampleAdapter(sampleTextList)
     }
 

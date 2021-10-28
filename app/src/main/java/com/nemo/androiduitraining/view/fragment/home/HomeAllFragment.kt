@@ -18,10 +18,8 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
 
         val binding = FragmentHomeAllBinding.bind(view)
 
-        // RecyclerViewに表示するサンプルデータを作成
         createSampleData()
 
-        // RecyclerViewに適当に文字列を表示するためのAdapterの設定
         binding.allRecyclerView.adapter = SampleAdapter(sampleTextList)
     }
 
