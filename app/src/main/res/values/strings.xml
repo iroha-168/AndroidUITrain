@@ -18,6 +18,17 @@
     <string name="no_item_sub_text">お気に入りに登録するとこの画面に保存され、\nクーポンやセールの時にいち早くお知らせします。</string>
     <string name="image">画像</string>
     <string name="now_popular_brand">今人気のブランド</string>
+    
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="now_popular_item">今人気のアイテム</string>
     <string name="illegal_class">"想定外のクラスです"</string>
+
+    <!--HomeFragment-->
+    <string name="all">すべて</string>
+    <string name="shoes">シューズ</string>
+    <string name="cosme">コスメ</string>
+    <string name="search_form_hint">すべてのアイテムから探す</string>
+    <string name="error_msg_not_found_fragment">予想外のFragmentです</string>
+
 </resources>
