@@ -16,13 +16,13 @@ import com.nemo.androiduitraining.view.util.Constant.POSITION_ZERO
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RankingGenderFragment: Fragment() {
+class RankingGenderFragment : Fragment() {
     private lateinit var binding: FragmentRankingCategoryBinding
 
     private sealed class IndexItem {
         abstract fun newInstance(): Fragment
 
-        object FistItem: IndexItem() {
+        object FistItem : IndexItem() {
             override fun newInstance() = RankingDetailFragment()
         }
     }
@@ -31,7 +31,7 @@ class RankingGenderFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRankingCategoryBinding.inflate(inflater, container, false)
-        return  binding.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class RankingGenderFragment: Fragment() {
             rankingDetailViewPager.isUserInputEnabled = false
             TabLayoutMediator(rankingDetailTabLayout, rankingDetailViewPager) {
                 tab, position ->
-                tab.text = when(position) {
+                tab.text = when (position) {
                     POSITION_ZERO -> getString(R.string.mens)
                     POSITION_FIRST -> getString(R.string.ladies)
                     POSITION_SECOND -> getString(R.string.kids)

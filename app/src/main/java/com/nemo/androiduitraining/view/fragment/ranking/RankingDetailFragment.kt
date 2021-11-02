@@ -12,13 +12,13 @@ import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RankingDetailFragment: Fragment() {
+class RankingDetailFragment : Fragment() {
     private lateinit var binding: FragmentRankingDetailBinding
     private lateinit var viewModel: RankingDetailViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRankingDetailBinding.inflate(inflater, container, false)
-        return  binding.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

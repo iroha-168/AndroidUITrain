@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RankingDetailViewModel @Inject constructor(): ViewModel() {
+class RankingDetailViewModel @Inject constructor() : ViewModel() {
     val items: MutableLiveData<List<Group>> = MutableLiveData()
 
     fun getRankingItems() {
@@ -35,7 +35,7 @@ class RankingDetailViewModel @Inject constructor(): ViewModel() {
                     )
                 )
             } catch (e: Exception) {
-                Log.d("ranking_detail_view_model", "${e}")
+                Log.d("ranking_detail_view_model", "$e")
             }
         }
     }
