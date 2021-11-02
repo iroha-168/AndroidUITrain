@@ -15,7 +15,7 @@ import javax.inject.Inject
 class RankingDetailViewModel @Inject constructor(): ViewModel() {
     val items: MutableLiveData<List<Group>> = MutableLiveData()
 
-    fun getItems() {
+    fun getRankingItems() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val rankingImageItems = RankingItem()
@@ -35,7 +35,7 @@ class RankingDetailViewModel @Inject constructor(): ViewModel() {
                     )
                 )
             } catch (e: Exception) {
-                Log.d("ranking_detail_view_model", "${e.localizedMessage}")
+                Log.d("ranking_detail_view_model", "${e}")
             }
         }
     }

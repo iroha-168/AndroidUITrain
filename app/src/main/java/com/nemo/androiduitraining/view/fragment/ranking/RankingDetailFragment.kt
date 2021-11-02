@@ -30,6 +30,6 @@ class RankingDetailFragment: Fragment() {
             groupAdapter.clear()
             groupAdapter.addAll(it)
         })
-        viewModel.getItems()
+        viewModel.getRankingItems()
     }
 }
