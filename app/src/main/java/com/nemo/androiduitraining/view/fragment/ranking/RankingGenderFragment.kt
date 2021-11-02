@@ -7,7 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentRankingCategoryBinding
+import com.nemo.androiduitraining.view.util.Constant.COUNT_THERR
+import com.nemo.androiduitraining.view.util.Constant.POSITION_FIRST
+import com.nemo.androiduitraining.view.util.Constant.POSITION_SECOND
+import com.nemo.androiduitraining.view.util.Constant.POSITION_ZERO
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +39,7 @@ class RankingGenderFragment: Fragment() {
 
         binding.apply {
             rankingDetailViewPager.adapter = object : FragmentStateAdapter(this@RankingGenderFragment) {
-                override fun getItemCount(): Int = 3
+                override fun getItemCount(): Int = COUNT_THERR
                 override fun createFragment(position: Int): Fragment {
                     return indexItems[position].newInstance()
                 }
@@ -43,15 +48,9 @@ class RankingGenderFragment: Fragment() {
             TabLayoutMediator(rankingDetailTabLayout, rankingDetailViewPager) {
                 tab, position ->
                 tab.text = when(position) {
-                    0 -> {
-                        "メンズ"
-                    }
-                    1 -> {
-                        "レディース"
-                    }
-                    2 -> {
-                        "キッズ"
-                    }
+                    POSITION_ZERO -> getString(R.string.mens)
+                    POSITION_FIRST -> getString(R.string.ladies)
+                    POSITION_SECOND -> getString(R.string.kids)
                     else -> ""
                 }
             }.attach()
