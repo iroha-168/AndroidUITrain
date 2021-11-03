@@ -26,7 +26,7 @@
         android:id="@+id/ranking_text_group"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintTop_toBottomOf="@+id/ranking_image_group"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
