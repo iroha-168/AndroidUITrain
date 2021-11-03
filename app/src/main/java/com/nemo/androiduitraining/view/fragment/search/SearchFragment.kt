@@ -1,7 +1,7 @@
 package com.nemo.androiduitraining.view.fragment.search
 
 import android.os.Bundle
-import android.view.*
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentSearchBinding
