@@ -7,7 +7,7 @@ import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
-    private var _binding:FragmentSearchBinding? = null
+    private var _binding: FragmentSearchBinding? = null
     private val binding: FragmentSearchBinding
         get() = _binding!!
 
@@ -20,6 +20,4 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
