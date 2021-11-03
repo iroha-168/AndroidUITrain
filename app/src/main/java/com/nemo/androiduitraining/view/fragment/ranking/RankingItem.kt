@@ -7,7 +7,7 @@ import com.nemo.androiduitraining.databinding.ItemRankingBinding
 import com.nemo.androiduitraining.view.util.Constant.DOSKOI_RANKING_IMAGE
 import com.xwray.groupie.viewbinding.BindableItem
 
-class RankingItem: BindableItem<ItemRankingBinding>() {
+class RankingItem : BindableItem<ItemRankingBinding>() {
 
     private var binding: ItemRankingBinding? = null
 
@@ -15,9 +15,9 @@ class RankingItem: BindableItem<ItemRankingBinding>() {
         binding = ItemRankingBinding.bind(view)
         return binding!!
     }
-    
+
     override fun getLayout(): Int = R.layout.item_ranking
-    
+
     override fun bind(viewBinding: ItemRankingBinding, position: Int) {
         viewBinding.rankingImage.load(DOSKOI_RANKING_IMAGE)
         viewBinding.rankingCategory.setText(R.string.doskoi)

@@ -23,7 +23,7 @@ class RankingFragment : Fragment() {
     private sealed class IndexItem {
         abstract fun newInstance(): Fragment
 
-        object FistItem: IndexItem() {
+        object FistItem : IndexItem() {
             override fun newInstance() = RankingGenderFragment()
         }
     }
