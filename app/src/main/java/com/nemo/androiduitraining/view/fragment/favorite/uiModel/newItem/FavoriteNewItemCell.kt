@@ -1,11 +1,11 @@
-package com.nemo.androiduitraining.view.fragment.favorite.entity
+package com.nemo.androiduitraining.view.fragment.favorite.uiModel.newItem
 
 import android.view.View
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FavoriteNewItemItemCellBinding
 import com.xwray.groupie.viewbinding.BindableItem
 
-class FavoriteItemCell(
+class FavoriteNewItemCell(
     private val brandName: String,
     private val brandNameJapanese: String
 ) : BindableItem<FavoriteNewItemItemCellBinding>() {
