@@ -6,15 +6,23 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/all_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/gender_switch_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicator="@null"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/home_all_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.viewpager2.widget.ViewPager2>
+
+    </LinearLayout>
 </layout>
