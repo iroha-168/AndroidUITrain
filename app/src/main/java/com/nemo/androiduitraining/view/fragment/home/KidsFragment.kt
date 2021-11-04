@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentKidsBinding
-import com.nemo.androiduitraining.databinding.FragmentLadiesBinding
 
 class KidsFragment : Fragment(R.layout.fragment_kids) {
     companion object {
