@@ -24,8 +24,11 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
 
         val homeAllViewPagerAdapter = HomeAllViewPagerAdapter(this)
         setUpViewPager(homeAllViewPagerAdapter)
+    }
 
-        // FIXME:タブがタップされたら色が変わるようにする
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun setUpViewPager(adapter: HomeAllViewPagerAdapter) {
@@ -37,7 +40,8 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
             false,
             false
         ) { tab, position ->
-            val tabImage = getDrawable(requireContext(), FragmentsOrder.values()[position].drawableResId)
+            val tabImage =
+                getDrawable(requireContext(), FragmentsOrder.values()[position].drawableResId)
 
             tab.icon = tabImage
         }.attach()
@@ -60,9 +64,9 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
     }
 
     private enum class FragmentsOrder(val drawableResId: Int) {
-        MENS(R.drawable.mens_before),
+        MENS(R.drawable.ic_mens_before),
         LADIES(R.drawable.ladies_selector),
-        KIDS(R.drawable.kids_before)
+        KIDS(R.drawable.ic_kids_before)
     }
 
 }
