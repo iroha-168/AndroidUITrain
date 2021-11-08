@@ -68,5 +68,4 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         LADIES(R.drawable.ladies_selector),
         KIDS(R.drawable.ic_kids_before)
     }
-
 }
