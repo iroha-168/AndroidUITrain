@@ -11,16 +11,24 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         fun newInstance() = HomeAllFragment()
     }
 
+    private var _binding: FragmentHomeAllBinding? = null
+    private val binding
+        get() = _binding!!
     var sampleTextList: ArrayList<String> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val binding = FragmentHomeAllBinding.bind(view)
+        _binding = FragmentHomeAllBinding.bind(view)
 
         createSampleData()
 
         binding.allRecyclerView.adapter = SampleAdapter(sampleTextList)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     // RecyclerViewに配置する適当な数字を作成
