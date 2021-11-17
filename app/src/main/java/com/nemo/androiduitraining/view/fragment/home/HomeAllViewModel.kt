@@ -1,10 +1,12 @@
 package com.nemo.androiduitraining.view.fragment.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
 class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClickListener {
@@ -12,7 +14,7 @@ class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClic
     data class RenderData(val selectedGender: Gender)
 
     override fun onGenderClick(gender: Gender) {
-        Timber.d("gender $gender")
+        Log.d("Gender", gender.toString())
         renderData.value = renderData.value?.copy(selectedGender = gender)
     }
 }
