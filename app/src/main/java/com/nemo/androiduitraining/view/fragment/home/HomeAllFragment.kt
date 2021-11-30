@@ -29,7 +29,6 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         viewModel.renderData.observe(viewLifecycleOwner) {
             adapter.update(it, viewModel)
         }
-
     }
 
     override fun onDestroyView() {

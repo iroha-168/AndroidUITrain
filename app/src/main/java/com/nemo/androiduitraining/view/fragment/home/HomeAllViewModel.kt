@@ -14,10 +14,10 @@ class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClic
     data class RenderData(val selectedGender: Gender)
 
     override fun onGenderClick(gender: Gender) {
-        Log.d("Gender", gender.toString())
         renderData.value = renderData.value?.copy(selectedGender = gender)
     }
 }
+
 
 enum class Gender {
     MAN,
