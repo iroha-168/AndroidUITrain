@@ -16,6 +16,3 @@ class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClic
         renderData.value = renderData.value?.copy(selectedGender = gender)
     }
 }
-
-
-

@@ -15,4 +15,3 @@ class HomeAllAdapter : GroupAdapter<GroupieViewHolder>() {
         updateAsync(group)
     }
 }
-
