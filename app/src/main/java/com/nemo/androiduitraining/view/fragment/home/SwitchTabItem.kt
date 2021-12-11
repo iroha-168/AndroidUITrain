@@ -1,7 +1,6 @@
 package com.nemo.androiduitraining.view.fragment.home
 
 import android.view.View
-import androidx.databinding.BindingAdapter
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.PersonSwitchTabBinding
 import com.xwray.groupie.Item

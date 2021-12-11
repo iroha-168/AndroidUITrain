@@ -1,4 +1,4 @@
-package com.nemo.androiduitraining.view.fragment.home
+package com.nemo.androiduitraining.view.fragment.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ class SampleAdapter(private val sampleDataset: ArrayList<String>) :
 
     class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val textView = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false) as TextView
         return ViewHolder(textView)

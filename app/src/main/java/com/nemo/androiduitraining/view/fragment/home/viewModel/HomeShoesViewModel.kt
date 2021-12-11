@@ -1,16 +1,16 @@
-package com.nemo.androiduitraining.view.fragment.home
+package com.nemo.androiduitraining.view.fragment.home.viewModel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.nemo.androiduitraining.view.fragment.home.Gender
+import com.nemo.androiduitraining.view.fragment.home.SwitchTabItem
 import dagger.hilt.android.lifecycle.HiltViewModel
-import timber.log.Timber
 import javax.inject.Inject
-import kotlin.math.log
 
 @HiltViewModel
-class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClickListener {
-    val renderData = MutableLiveData<RenderData>(RenderData(Gender.KIDS))
+class HomeShoesViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClickListener {
+    val renderData = MutableLiveData<RenderData>(RenderData(Gender.MAN))
+
     data class RenderData(val selectedGender: Gender)
 
     override fun onGenderClick(gender: Gender) {
@@ -19,8 +19,3 @@ class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClic
 }
 
 
-enum class Gender {
-    MAN,
-    WOMAN,
-    KIDS
-}
