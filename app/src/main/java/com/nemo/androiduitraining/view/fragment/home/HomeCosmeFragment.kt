@@ -14,17 +14,17 @@ class HomeCosmeFragment : Fragment(R.layout.fragment_home_cosme) {
         fun newInstance() = HomeCosmeFragment()
     }
 
-    private val adapter = HomeCosmeAdapter()
+    private val homeCosmeAdapter = HomeCosmeAdapter()
     private val viewModel: HomeCosmeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentHomeCosmeBinding.bind(view)
-        binding.cosmeRecyclerView.adapter = adapter
+        binding.cosmeRecyclerView.adapter = homeCosmeAdapter
 
         viewModel.renderData.observe(viewLifecycleOwner) {
-            adapter.update(it, viewModel)
+            homeCosmeAdapter.update(it, viewModel)
         }
     }
 
