@@ -14,17 +14,13 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         fun newInstance() = HomeAllFragment()
     }
 
-    private var _binding: FragmentHomeAllBinding? = null
-    private val binding
-        get() = _binding!!
-
     private val homeAllAdapter = HomeAllAdapter()
     private val viewModel: HomeAllViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentHomeAllBinding.bind(view)
+        val binding = FragmentHomeAllBinding.bind(view)
         binding.allRecyclerView.adapter = homeAllAdapter
         viewModel.renderData.observe(viewLifecycleOwner) {
             homeAllAdapter.update(it, viewModel)
@@ -33,6 +29,5 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }

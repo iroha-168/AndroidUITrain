@@ -14,17 +14,13 @@ class HomeShoesFragment : Fragment(R.layout.fragment_home_shoes) {
         fun newInstance() = HomeShoesFragment()
     }
 
-    private var _binding: FragmentHomeShoesBinding? = null
-    private val binding
-        get() = _binding!!
-
     private val homeShoesAdapter = HomeShoesAdapter()
     private val viewModel: HomeShoesViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentHomeShoesBinding.bind(view)
+        val binding = FragmentHomeShoesBinding.bind(view)
 
         binding.shoesRecyclerView.adapter = homeShoesAdapter
         viewModel.renderData.observe(viewLifecycleOwner) {
@@ -34,6 +30,5 @@ class HomeShoesFragment : Fragment(R.layout.fragment_home_shoes) {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }
