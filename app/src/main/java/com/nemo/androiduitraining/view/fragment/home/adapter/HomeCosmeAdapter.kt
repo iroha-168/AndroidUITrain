@@ -15,4 +15,3 @@ class HomeCosmeAdapter : GroupAdapter<GroupieViewHolder>() {
         updateAsync(group)
     }
 }
-
