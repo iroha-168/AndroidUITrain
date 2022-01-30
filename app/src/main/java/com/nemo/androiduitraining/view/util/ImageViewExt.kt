@@ -24,7 +24,7 @@ fun ImageView.setImage(
 
 @BindingAdapter("tintColor")
 fun ImageView.setTintColor(@ColorRes colorResId: Int?) {
-    colorResId?:return
+    colorResId ?: return
 
     setColorFilter(colorResId)
 }

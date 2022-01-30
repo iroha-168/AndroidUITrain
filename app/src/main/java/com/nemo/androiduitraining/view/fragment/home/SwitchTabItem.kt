@@ -11,7 +11,6 @@ class SwitchTabItem(private val selectedGender: Gender, private val listener: On
         viewBinding.listener = listener
         viewBinding.selectedGender = selectedGender
         viewBinding.executePendingBindings()
-
     }
 
     override fun getLayout(): Int = R.layout.person_switch_tab
@@ -24,4 +23,3 @@ class SwitchTabItem(private val selectedGender: Gender, private val listener: On
         fun onGenderClick(gender: Gender)
     }
 }
-
