@@ -1,6 +1,8 @@
 package com.nemo.androiduitraining.view.util
 
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import java.time.Instant
@@ -29,4 +31,16 @@ class DoubleTapOnClickListener(private val listener: View.OnClickListener?) : Vi
         }
         lastTapAtMs = now
     }
+}
+
+@BindingAdapter("isSelected")
+fun View.setScale(isSelected: Boolean?) {
+    isSelected ?: return
+
+    val animation = if (isSelected) {
+        ScaleAnimation(1f, 1.5f, 1f, 1.5f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+    } else {
+        ScaleAnimation(1.5f, 1f, 1.5f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+    }.apply { fillAfter = true }
+    startAnimation(animation)
 }

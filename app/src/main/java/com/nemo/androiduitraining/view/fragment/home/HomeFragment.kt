@@ -1,14 +1,12 @@
 package com.nemo.androiduitraining.view.fragment.home
 
 import android.os.Bundle
-import android.provider.Settings.Global.getString
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentHomeBinding
-import java.lang.IllegalArgumentException
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="listener"
+            type="com.nemo.androiduitraining.view.fragment.home.SwitchTabItem.OnClickListener" />
+        <import type="com.nemo.androiduitraining.view.fragment.home.Gender"/>
+        <variable
+            name="selectedGender"
+            type="com.nemo.androiduitraining.view.fragment.home.Gender"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mens_tab"
+            android:paddingVertical="8dp"
+            app:onClick="@{()->listener.onGenderClick(Gender.MAN)}"
+            app:tintColor="@{selectedGender==Gender.MAN ? @color/person_image_blue : @color/text_gray}"
+            app:isSelected="@{selectedGender==Gender.MAN}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mens_before"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/ladies_tab"
+            android:paddingVertical="8dp"
+            app:onClick="@{()->listener.onGenderClick(Gender.WOMAN)}"
+            app:tintColor="@{selectedGender==Gender.WOMAN ? @color/person_image_pink : @color/text_gray}"
+            app:isSelected="@{selectedGender==Gender.WOMAN}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_ladies_before"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/kids_tab"
+            android:paddingVertical="8dp"
+            app:onClick="@{()->listener.onGenderClick(Gender.KIDS)}"
+            app:tintColor="@{selectedGender==Gender.KIDS ? @color/person_image_yellow : @color/text_gray}"
+            app:isSelected="@{selectedGender==Gender.KIDS}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_kids_before"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</layout>
