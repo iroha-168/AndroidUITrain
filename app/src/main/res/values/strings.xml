@@ -30,5 +30,13 @@
     <string name="cosme">コスメ</string>
     <string name="search_form_hint">すべてのアイテムから探す</string>
     <string name="error_msg_not_found_fragment">予想外のFragmentです</string>
+    <string name="mens">メンズ</string>
+    <string name="ladies">レディース</string>
+    <string name="kids">キッズ</string>
+    <string name="accessory">アクセサリー</string>
+    <string name="under_wear">アンダーウェア</string>
+    <string name="doskoi">どすこい</string>
+    <string name="doskoi_brand">どすこいブランド</string>
+    <string name="two_thousand_yen">￥2,000</string>
 
 </resources>
