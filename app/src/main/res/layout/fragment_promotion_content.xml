@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/side_margin_16"
@@ -19,28 +20,28 @@
             android:src="@drawable/sample_promotion_img"
             android:scaleType="centerCrop"/>
 
-            <TextView
-                android:id="@+id/promotion_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="50dp"
-                android:text="プロモーション画像表示！"/>
+        <TextView
+            android:id="@+id/promotion_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="プロモーション画像表示！" />
 
             <TextView
                 android:id="@+id/promotion_sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13dp"
+                android:textSize="13sp"
                 android:textColor="@color/white"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="30dp"
-                android:text="プロモーション内容を説明することができます"/>
+                tools:text="プロモーション内容を説明することができます"/>
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
