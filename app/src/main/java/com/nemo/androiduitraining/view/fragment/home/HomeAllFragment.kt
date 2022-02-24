@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import com.nemo.androiduitraining.R
 import com.nemo.androiduitraining.databinding.FragmentHomeAllBinding
 import com.nemo.androiduitraining.view.fragment.home.adapter.HomeAllAdapter
+import com.nemo.androiduitraining.view.fragment.home.adapter.HomePromotionPageAdapter
 import com.nemo.androiduitraining.view.fragment.home.viewModel.HomeAllViewModel
 
 class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
@@ -16,6 +17,7 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
 
     private val homeAllAdapter = HomeAllAdapter()
     private val viewModel: HomeAllViewModel by viewModels()
+    private val homePromotionPageAdapter = HomePromotionPageAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,7 +25,8 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         val binding = FragmentHomeAllBinding.bind(view)
         binding.allRecyclerView.adapter = homeAllAdapter
         viewModel.renderData.observe(viewLifecycleOwner) {
-            homeAllAdapter.update(it, viewModel)
+            homeAllAdapter.update(it, viewModel, homePromotionPageAdapter)
+            homePromotionPageAdapter.update(it.promotionList, viewLifecycleOwner)
         }
     }
 

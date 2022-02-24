@@ -29,6 +29,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupViewPager(adapter: HomeViewPagerAdapter) {
         binding.homeViewPager.adapter = adapter
+        binding.homeViewPager.isUserInputEnabled = false
 
         TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager) { tab, position ->
             val tabTitle = getString(FragmentsOrder.values()[position].titleResId)

@@ -1,0 +1,15 @@
+package com.nemo.androiduitraining.view.fragment.home.adapter
+
+import android.util.Log
+import androidx.lifecycle.LifecycleOwner
+import com.nemo.androiduitraining.entity.Promotion
+import com.nemo.androiduitraining.view.fragment.home.HomePromotionItem
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
+
+class HomePromotionPageAdapter : GroupAdapter<GroupieViewHolder>() {
+    fun update(promotionList: List<Promotion>, lifecycleOwner: LifecycleOwner) {
+        val group = promotionList.map { HomePromotionItem(it, lifecycleOwner) }
+        updateAsync(group)
+    }
+}
