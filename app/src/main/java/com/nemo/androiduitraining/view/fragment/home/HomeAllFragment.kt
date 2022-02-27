@@ -25,9 +25,9 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         val binding = FragmentHomeAllBinding.bind(view)
         binding.allRecyclerView.adapter = homeAllAdapter
         viewModel.renderData.observe(viewLifecycleOwner) {
-            homeAllAdapter.update(it, viewModel, homePromotionPageAdapter)
-            homePromotionPageAdapter.update(it.promotionList, viewLifecycleOwner)
+            homeAllAdapter.update(it, viewModel, homePromotionPageAdapter, viewModel)
         }
+        viewModel.init()
     }
 
     override fun onDestroyView() {

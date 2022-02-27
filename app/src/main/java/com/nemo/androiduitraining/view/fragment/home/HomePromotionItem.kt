@@ -11,12 +11,10 @@ import com.xwray.groupie.viewbinding.BindableItem
 import timber.log.Timber
 import java.util.*
 
-class HomePromotionItem(private val promotion: Promotion, private val lifecycleOwner: LifecycleOwner) : BindableItem<PromotionContentBinding>() {
+class HomePromotionItem(private val promotion: Promotion) : BindableItem<PromotionContentBinding>() {
     override fun bind(viewBinding: PromotionContentBinding, position: Int) {
-        viewBinding.lifecycleOwner = lifecycleOwner
         viewBinding.promotion = promotion
         viewBinding.executePendingBindings()
-        Log.d("TAG", "${promotion}")
     }
 
     override fun getLayout(): Int = R.layout.promotion_content

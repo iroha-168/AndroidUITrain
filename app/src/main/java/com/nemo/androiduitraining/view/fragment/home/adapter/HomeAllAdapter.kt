@@ -12,11 +12,12 @@ class HomeAllAdapter : GroupAdapter<GroupieViewHolder>() {
     fun update(
         renderData: HomeAllViewModel.RenderData,
         listener: SwitchTabItem.OnClickListener,
-        homePromotionPageAdapter: HomePromotionPageAdapter
+        homePromotionPageAdapter: HomePromotionPageAdapter,
+        homePromotionListener: HomePromotion.HomePromotionListener
     ) {
         val group = mutableListOf<BindableItem<out ViewBinding>>()
         group.add(SwitchTabItem(renderData.selectedGender, listener))
-        group.add(HomePromotion(homePromotionPageAdapter, renderData.promotionList))
+        group.add(HomePromotion(homePromotionPageAdapter, renderData.promotionList, renderData.promotionIndex, homePromotionListener))
 
         updateAsync(group)
     }
