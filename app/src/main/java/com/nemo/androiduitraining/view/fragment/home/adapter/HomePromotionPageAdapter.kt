@@ -1,7 +1,5 @@
 package com.nemo.androiduitraining.view.fragment.home.adapter
 
-import android.util.Log
-import androidx.lifecycle.LifecycleOwner
 import com.nemo.androiduitraining.entity.Promotion
 import com.nemo.androiduitraining.view.fragment.home.HomePromotionItem
 import com.xwray.groupie.GroupAdapter

@@ -21,7 +21,7 @@ class HomePromotion(
         viewBinding.promotionViewPager.adapter = homePromotionPageAdapter
         viewBinding.promotionViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         viewBinding.promotionViewPager.setCurrentItem(promotionIndex, true)
-        viewBinding.promotionTabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+        viewBinding.promotionTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.let {
                     homePromotionListener.onTabSelected(it.position)
@@ -52,13 +52,12 @@ class HomePromotion(
         PromotionViewPagerBinding.bind(view)
 
     override fun hasSameContentAs(other: Item<*>): Boolean =
-        (other as? HomePromotion)?.promotionList == promotionList
-            && (other as? HomePromotion)?.promotionIndex == promotionIndex
+        (other as? HomePromotion)?.promotionList == promotionList &&
+            (other as? HomePromotion)?.promotionIndex == promotionIndex
 
     override fun isSameAs(other: Item<*>): Boolean = other is HomePromotion
 
-
     interface HomePromotionListener {
-        fun onTabSelected(index:Int)
+        fun onTabSelected(index: Int)
     }
 }

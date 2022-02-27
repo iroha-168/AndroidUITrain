@@ -21,7 +21,7 @@ class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClic
             while (true) {
                 delay(5000)
                 if (renderData.value?.promotionList?.lastIndex != renderData.value?.promotionIndex) {
-                    renderData.value = renderData.value?.copy(promotionIndex = (renderData.value?.promotionIndex?:0)+1)
+                    renderData.value = renderData.value?.copy(promotionIndex = (renderData.value?.promotionIndex ?: 0) + 1)
                 } else {
                     renderData.value = renderData.value?.copy(promotionIndex = 0)
                 }

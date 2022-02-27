@@ -1,7 +1,6 @@
 package com.nemo.androiduitraining.view.util
 
 import android.graphics.drawable.Drawable
-import android.util.Log
 import android.widget.ImageView
 import androidx.annotation.ColorRes
 import androidx.databinding.BindingAdapter
