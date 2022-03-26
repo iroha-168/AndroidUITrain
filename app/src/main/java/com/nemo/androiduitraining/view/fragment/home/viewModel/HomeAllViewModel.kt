@@ -36,7 +36,7 @@ class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClic
         }
     }
 
-    private fun generatePromotionList() : List<Promotion> {
+    private fun generatePromotionList(): List<Promotion> {
         return listOf(
             Promotion(
                 1,
