@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/promotion_view_pager"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TableLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/promotion_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
 
-</LinearLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/promotion_tab_layout"
+            app:tabBackground="@drawable/tab_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:layout_gravity="center"
+            app:tabIndicator="@null"/>
+
+    </LinearLayout>
+</layout>
