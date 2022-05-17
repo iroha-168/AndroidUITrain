@@ -12,12 +12,12 @@ import com.xwray.groupie.viewbinding.BindableItem
 class HomeAllAdapter : GroupAdapter<GroupieViewHolder>() {
     fun update(
         renderData: HomeAllViewModel.RenderData,
-        listener: SwitchTabItem.OnClickListener,
         homePromotionPageAdapter: HomePromotionPageAdapter,
+        tabClickedListener: SwitchTabItem.OnClickListener,
         homePromotionListener: HomePromotionListener,
     ) {
         val group = mutableListOf<BindableItem<out ViewBinding>>()
-        group.add(SwitchTabItem(renderData.selectedGender, listener))
+        group.add(SwitchTabItem(renderData.selectedGender, tabClickedListener))
         group.add(HomePromotion(homePromotionPageAdapter, renderData.promotionIndex, homePromotionListener, renderData.promotionList))
 
         updateAsync(group)

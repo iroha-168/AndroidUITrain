@@ -18,7 +18,7 @@ class HomePromotion(
     private val adapter: HomePromotionPageAdapter,
     private val promotionIndex: Int,
     private val homePromotionListener: HomePromotionListener,
-    private val promoList: List<Promotion>,
+    private val promotionList: List<Promotion>,
 ) : BindableItem<HomePromotionBinding>() {
     override fun bind(viewBinding: HomePromotionBinding, position: Int) {
         viewBinding.promotionViewPager.adapter = adapter
@@ -40,7 +40,7 @@ class HomePromotion(
                 // do nothing
             }
         })
-        adapter.update(promoList)
+        adapter.update(promotionList)
         TabLayoutMediator(
             viewBinding.promotionTabLayout,
             viewBinding.promotionViewPager,
@@ -57,6 +57,6 @@ class HomePromotion(
     override fun isSameAs(other: Item<*>): Boolean = other is HomePromotion
 
     override fun hasSameContentAs(other: Item<*>): Boolean =
-        (other as? HomePromotion)?.promoList == promoList &&
+        (other as? HomePromotion)?.promotionList == promotionList &&
             (other as? HomePromotion)?.promotionIndex == promotionIndex
 }

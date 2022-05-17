@@ -7,7 +7,9 @@ import com.xwray.groupie.GroupieViewHolder
 
 class HomePromotionPageAdapter : GroupAdapter<GroupieViewHolder>() {
     fun update(promotionList: List<Promotion>) {
-        val group = promotionList.map { HomePromotionItem(it) }
-        update(group)
+//        val group = promotionList.map { HomePromotionItem(it) }
+//        update(group)
+
+        promotionList.map { HomePromotionItem(it) }.let(::update)
     }
 }

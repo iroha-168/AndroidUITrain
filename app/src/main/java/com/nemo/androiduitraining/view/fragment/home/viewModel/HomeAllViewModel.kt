@@ -15,22 +15,20 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClickListener, HomePromotionListener {
     val renderData = MutableLiveData<RenderData>(RenderData(Gender.MAN, generatePromotionList()))
-    data class RenderData(
-        val selectedGender: Gender,
-        val promotionList: List<Promotion>,
-        val promotionIndex: Int = 0,
-    )
+
+    init {
+        autoSwipeViewPager()
+    }
 
     fun autoSwipeViewPager() {
         viewModelScope.launch {
             while (true) {
+                val data = renderData.value ?: continue
                 delay(5000)
-                if (renderData.value?.promotionList?.lastIndex != renderData.value?.promotionIndex) {
-                    renderData.value = renderData.value?.copy(
-                        promotionIndex = (renderData.value?.promotionIndex ?: 0) + 1
-                    )
+                renderData.value = if (data.promotionList?.lastIndex != data.promotionIndex) {
+                    data.copy(promotionIndex = (renderData.value?.promotionIndex ?: 0) + 1)
                 } else {
-                    renderData.value = renderData.value?.copy(promotionIndex = 0)
+                    data.copy(promotionIndex = 0)
                 }
             }
         }
@@ -66,4 +64,10 @@ class HomeAllViewModel @Inject constructor() : ViewModel(), SwitchTabItem.OnClic
     override fun onTabSelected(index: Int) {
         renderData.value = renderData.value?.copy(promotionIndex = index)
     }
+
+    data class RenderData(
+        val selectedGender: Gender,
+        val promotionList: List<Promotion>,
+        val promotionIndex: Int = 0,
+    )
 }

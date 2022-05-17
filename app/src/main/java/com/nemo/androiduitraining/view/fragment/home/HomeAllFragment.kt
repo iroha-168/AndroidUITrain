@@ -25,8 +25,7 @@ class HomeAllFragment : Fragment(R.layout.fragment_home_all) {
         val binding = FragmentHomeAllBinding.bind(view)
         binding.allRecyclerView.adapter = homeAllAdapter
         viewModel.renderData.observe(viewLifecycleOwner) {
-            homeAllAdapter.update(it, viewModel, homePromotionPageAdapter, viewModel)
+            homeAllAdapter.update(it, homePromotionPageAdapter, viewModel, viewModel)
         }
-        viewModel.autoSwipeViewPager()
     }
 }
