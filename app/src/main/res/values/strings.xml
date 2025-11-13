@@ -31,4 +31,8 @@
     <string name="search_form_hint">すべてのアイテムから探す</string>
     <string name="error_msg_not_found_fragment">予想外のFragmentです</string>
 
+    <!-- Other -->
+    <string name="notifications_description">Notifications</string>
+    <string name="shopping_cart_description">Shopping cart</string>
+
 </resources>
